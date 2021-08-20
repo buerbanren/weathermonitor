@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="天地图"/>
+    <title>天地图－地图API－范例－经纬度直投地图</title>
+    <script type="text/javascript" src="http://api.tianditu.gov.cn/api?v=4.0&tk=e954874b13999569a7d505ca9bddb51d"></script>
+    <style type="text/css">
+        body,html{
+            width:100%;
+            height:100%;
+            margin:0;
+            font-family:"Microsoft YaHei"
+        }
+        #mapDiv{
+            width:100%;
+            height:100%;
+        }
+        input,b,p{
+            margin-left:5px;font-size:14px
+        }
+    </style>
+    <script>
+        var map;
+        var zoom = 12;
+        function onLoad() {
+            map = new T.Map('mapDiv', {
+                projection: 'EPSG:4326'
+            });
+            map.centerAndZoom(new T.LngLat(116.40769, 39.89945), zoom);
+
+            fn = function (pos) {
+                    map.centerAndZoom(new T.LngLat(pos.coords.longitude,pos.coords.latitude), 15)
+                    console.log(pos.coords)
+            }
+            function getLocation(){ 
+                if (navigator.geolocation){ 
+                    navigator.geolocation.getCurrentPosition(fn,null); 
+                }else{ 
+                    alert("浏览器不支持地理定位。"); 
+                } 
+            } 
+            getLocation();
+        }
+    </script>
+</head>
+<body onLoad="onLoad()">
+<div id="mapDiv"></div>
+</body>
+</html>

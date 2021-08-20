@@ -1,0 +1,16 @@
+INPUT(
+./temp\debug\obj\comdefine.o
+./temp\debug\obj\dialplate.o
+./temp\debug\obj\iteminfobase.o
+./temp\debug\obj\main.o
+./temp\debug\obj\precipitationforecast.o
+./temp\debug\obj\roomenvironmentmonitor.o
+./temp\debug\obj\topinfo.o
+./temp\debug\obj\simpleweatherinfo.o
+./temp\debug\obj\weatherinfotoday.o
+./temp\debug\obj\qrc_roomenvironmentmonitor.o
+./temp\debug\obj\moc_iteminfobase.o
+./temp\debug\obj\moc_roomenvironmentmonitor.o
+./temp\debug\obj\moc_topinfo.o
+./temp\debug\obj\moc_weatherinfotoday.o
+);

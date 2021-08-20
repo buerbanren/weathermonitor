@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="code\common\comdefine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\dialplate\dialplate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\iteminfobase\iteminfobase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\precipitationforecast\precipitationforecast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\roomenvironmentmonitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\simpleinfo\simpleweatherinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\topinfo\topinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\weatherinfotoday\weatherinfotoday.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\common\comdefine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\dialplate\dialplate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="code\iteminfobase\iteminfobase.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="code\precipitationforecast\precipitationforecast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="code\roomenvironmentmonitor.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="code\simpleinfo\simpleweatherinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="code\topinfo\topinfo.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="code\weatherinfotoday\weatherinfotoday.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="temp\debug\moc\moc_iteminfobase.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_iteminfobase.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\debug\moc\moc_roomenvironmentmonitor.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_roomenvironmentmonitor.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\debug\moc\moc_topinfo.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_topinfo.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\debug\moc\moc_weatherinfotoday.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_weatherinfotoday.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\debug\rc\qrc_roomenvironmentmonitor.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp\release\qrc_roomenvironmentmonitor.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="code\resource\weathericons\100.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\101.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\102.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\103.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\104.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\150.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\153.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\154.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\300.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\301.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\302.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\303.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\304.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\305.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\306.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\307.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\308.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\309.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\310.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\311.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\312.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\313.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\314.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\315.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\316.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\317.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\318.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\350.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\351.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\399.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\400.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\401.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\402.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\403.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\404.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\405.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\406.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\407.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\408.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\409.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\410.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\456.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\457.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\499.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\500.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\501.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\502.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\503.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\504.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\507.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\508.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\509.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\510.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\511.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\512.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\513.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\514.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\515.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\900.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\901.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\999.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\weathericons\LICENSE">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\qss\airquality.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\precipitationforecast\map.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <CustomBuild Include="code\roomenvironmentmonitor.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <None Include="code\resource\qss\simpleweatherinfo.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="code\resource\qss\topinfo.css">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="G:\Programming\C++_Qt\RoomEnvironmentMonitor\RoomEnvironmentMonitor_resource.rc" />
+  </ItemGroup>
+</Project>
