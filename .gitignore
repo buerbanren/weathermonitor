@@ -15,6 +15,7 @@
 *.so
 *.dylib
 *.dll
+/temp/
 
 # Fortran module files
 *.mod
@@ -37,3 +38,4 @@
 *.usr
 *.Debug
 *.Release
+
