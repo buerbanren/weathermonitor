@@ -21,6 +21,8 @@ public:
 
     virtual void setContent(){};
 
+    virtual void setWeatherInfo(std::string name, std::string value)=0;
+
 	virtual void resizeEvent(QResizeEvent *event);
 
 private:

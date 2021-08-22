@@ -20,6 +20,7 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event);
+    void resolveResponse();
 
 private:
     void initialControl();
@@ -41,6 +42,12 @@ private:
     QNetworkAccessManager *pNetManager=nullptr;
     QNetworkRequest *pNetRequest=nullptr;
     QNetworkReply *pNetReply=nullptr;
+
+    QByteArray jsdata;
+
+    // json文档和对象
+    QJsonDocument jsdoc;
+    QJsonObject jsobj;
 
 
 

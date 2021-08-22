@@ -42,6 +42,84 @@ void RoomEnvironmentMonitor::resizeEvent(QResizeEvent *event)
     QWidget::resizeEvent(event);
 }
 
+void RoomEnvironmentMonitor::resolveResponse()
+{
+    jsdoc = QJsonDocument::fromJson(jsdata);
+    jsobj=jsdoc.object();
+    string value;
+
+        // 当前天气信息
+        auto weather_current = jsobj["responses"].toArray()[0].toObject()["weather"].toArray()[0].toObject()["current"].toObject();
+        value=weather_current["capAbbr"].toString().toStdString();
+        simpleinfo->setWeatherInfo("weather",value);
+        qDebug()<<value.c_str();
+
+        // 天气icon配置文件
+        string content;
+        content = Common::readFileContent("G:/Programming/C++_Qt/weathermonitor/code/weathercodemap.json");
+        QJsonParseError jserror;
+        QJsonDocument jsdoc_icons=QJsonDocument::fromJson(content.data(),&jserror);
+        if(jserror.error!=QJsonParseError::NoError)
+        {
+            qDebug()<<u8"本地天气图标配置文件解析失败";
+            return ;
+        }
+
+        // 天气图标
+        auto jsvalueicons = jsdoc_icons.object();
+        auto it = jsvalueicons.find(value.c_str());
+        if(it!=jsvalueicons.end())
+        {
+            simpleinfo->setWeatherInfo("weatherico",it.value().toObject().value("code").toString().toStdString());
+        }
+        // 当前温度
+        value=QString::number(weather_current["temp"].toInt()).toStdString();
+        simpleinfo->setWeatherInfo("temp",value + "℃");
+        // 空气质量
+        value=weather_current["aqiSeverity"].toString().toStdString();
+        simpleinfo->setWeatherInfo("airquality",value);
+
+
+        // 预报信息
+        auto weather_forecast = jsobj["responses"].toArray()[0].toObject()["weather"].toArray()[0].toObject()["forecast"].toObject();
+        // 最高温度
+        value=QString::number(weather_forecast["days"].toArray()[0].toObject()["daily"].toObject()["tempHi"].toInt()).toStdString();
+        value.append(u8"℃ / ");
+        // 最高最低气温
+        value.append(QString::number(weather_forecast["days"].toArray()[0].toObject()["daily"].toObject()["tempLo"].toInt()).toStdString());
+        value.append(u8"℃");
+        simpleinfo->setWeatherInfo("tempmaxmin",value);
+
+
+        // 设置今日信息
+        // 体感温度
+        value=QString::number(weather_current["feels"].toInt()).toStdString();
+        infoToday->setWeatherInfo("sensibletemperature",value + u8"℃");
+        // 设置湿度
+        value=QString::number(std::round(weather_forecast["days"].toArray()[0].toObject()["daily"].toObject()["rhLo"].toDouble())).toStdString();
+        infoToday->setWeatherInfo("humidity",value + "%");
+        // 风向与风力
+        value=weather_current["pvdrWindDir"].toString().toStdString();
+        infoToday->setWeatherInfo("winddirection",value);
+        value=weather_current["pvdrWindSpd"].toString().toStdString();
+        infoToday->setWeatherInfo("windpower",value);
+
+        // 能见度
+        value=QString::number(weather_current["vis"].toDouble()).toStdString();
+        infoToday->setWeatherInfo("visibility",value + "km");
+        // 日出日落时间
+        value=weather_forecast["days"].toArray()[0].toObject()["almanac"].toObject()["sunrise"].toString().toStdString();
+        value = value.substr(11,5);
+        infoToday->setWeatherInfo("sunrise",value);
+        value=weather_forecast["days"].toArray()[0].toObject()["almanac"].toObject()["sunset"].toString().toStdString();
+        value = value.substr(11,5);
+        infoToday->setWeatherInfo("sunset",value);
+
+
+
+
+}
+
 void RoomEnvironmentMonitor::initialControl()
 {
     this->setStyleSheet("background-color:rgba(14,58,96,183);"
@@ -89,51 +167,15 @@ void RoomEnvironmentMonitor::initNetworkConfig()
     config.setPeerVerifyMode(QSslSocket::VerifyNone);
     pNetRequest->setSslConfiguration(config);
 
-    //pNetRequest->setUrl(QUrl(QString("https://%1.%2/%3")\
-                             .arg(REQUEST_DOMAIN_WEATHER)\
-                             .arg(REQUEST_HOST)\
-                             .arg("town/api/v1/sk?lat=36.06623&lng=120.38299")));
-
     pNetRequest->setUrl(QUrl(QString(REQUEST_URL)));
 
     pNetReply = pNetManager->get(*pNetRequest);
     connect(pNetReply,&QNetworkReply::readyRead,[&]()
     {
-        qDebug()<<pNetReply->rawHeaderList();
-        qDebug()<<pNetReply->rawHeader("content-length");
-        QByteArray data;
-        data=pNetReply->readAll();
-
-        QJsonDocument jsdoc=QJsonDocument::fromJson(data);
-        QJsonObject jsobj=jsdoc.object();
-        string value;
-        auto it = jsobj.find("responses");
-        if(it!=jsobj.end())
-        {
-            auto it_=it.value().toArray()[0].toObject()["weather"].toArray()[0].toObject()["current"].toObject();
-            value=it_["cap"].toString().toStdString();
-            simpleinfo->setWeatherInfo("weather",value);
-            string content;
-            content = Common::readFileContent("G:/Programming/C++_Qt/RoomEnvironmentMonitor/code/weathercodemap.json");
-            QJsonParseError jserror;
-            jsdoc=QJsonDocument::fromJson(content.data(),&jserror);
-            if(jserror.error!=QJsonParseError::NoError)
-            {
-                return ;
-            }
-            jsobj = jsdoc.object();
-            it = jsobj.find(value.c_str());
-            if(it!=jsobj.end())
-            {
-                simpleinfo->setWeatherInfo("weatherico",it.value().toObject().value("code").toString().toStdString());
-            }
-            value=QString::number(it_["temp"].toInt()).toStdString();
-            if(it!=jsobj.end())
-                simpleinfo->setWeatherInfo("temp",value + "℃");
-
-        }
-
-
-
+       jsdata.append(pNetReply->readAll());
     });
+
+    // 响应完成解析数据
+    connect(pNetReply,&QNetworkReply::finished,this,&RoomEnvironmentMonitor::resolveResponse);
+
 }

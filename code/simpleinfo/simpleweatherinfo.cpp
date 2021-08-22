@@ -60,28 +60,28 @@ void SimpleWeatherInfo::initialControl()
 
     labelWarning=new QLabel(this);
     labelWarning->setObjectName("labelWarning");
-    labelWarning->setText(u8"青岛市气象台发布大风蓝色预警信号，预计");
+    labelWarning->setText(u8"预警信息");
 
     labelTemperature=new QLabel(this);
     labelTemperature->setObjectName("labTemperature");
     labelTemperature->setAlignment(Qt::AlignCenter);
-    labelTemperature->setText(u8"22℃");
+    labelTemperature->setText(u8"00℃");
 
     labelAirQuality=new QLabel(this);
     labelAirQuality->setObjectName("labelAirQuality");
     //labelAirQuality->setIcon(QIcon(":/qss/resource/qss/airquality.png"));
     //labelAirQuality->setCheckable(false);
     labelAirQuality->setText(u8"空气质量");
-    //labelAirQuality->sett(Qt::AlignCenter);
+    labelAirQuality->setAlignment(Qt::AlignCenter);
 
     labelRainStatus=new QLabel(this);
     labelRainStatus->setObjectName("labelRainStatus");
-    labelRainStatus->setText(u8"雷阵雨");
+    labelRainStatus->setText(u8"");
     labelRainStatus->setAlignment(Qt::AlignCenter);
 
     labelTempMaxMin=new QLabel(this);
     labelTempMaxMin->setObjectName("labelTempMaxMin");
-    labelTempMaxMin->setText(u8"22 ℃ / 29 ℃");
+    labelTempMaxMin->setText(u8"00 ℃ / 00 ℃");
     labelTempMaxMin->setAlignment(Qt::AlignCenter);
 
 
