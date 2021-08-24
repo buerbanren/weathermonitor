@@ -167,7 +167,7 @@ void RoomEnvironmentMonitor::initNetworkConfig()
     config.setPeerVerifyMode(QSslSocket::VerifyNone);
     pNetRequest->setSslConfiguration(config);
 
-    pNetRequest->setUrl(QUrl(QString(REQUEST_URL)));
+    pNetRequest->setUrl(QUrl(QString(REQUEST_MSN_URL)));
 
     pNetReply = pNetManager->get(*pNetRequest);
     connect(pNetReply,&QNetworkReply::readyRead,[&]()

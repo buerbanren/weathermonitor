@@ -3,6 +3,7 @@
         <file>resource/qss/topinfo.css</file>
         <file>resource/qss/simpleweatherinfo.css</file>
         <file>resource/qss/airquality.png</file>
+        <file>resource/qss/dialbackground.png</file>
     </qresource>
     <qresource prefix="/weathericons">
         <file>resource/weathericons/100.png</file>

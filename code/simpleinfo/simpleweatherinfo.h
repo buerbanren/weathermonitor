@@ -18,6 +18,7 @@
 #include <QJsonArray>
 
 #include "../common/comdefine.h"
+#include "../dialimage/dialimage.h"
 
 class SimpleWeatherInfo : public QWidget
 {
@@ -54,6 +55,9 @@ private:
         std::pair<std::string,QLabel * &>("tempmaxmin", labelTempMaxMin),
         std::pair<std::string,QLabel * &>("weatherico", labelWeatherImg)
     };
+
+    DialImage *dialTemp=nullptr;
+    DialImage *dialHumidity=nullptr;
 
 
 };

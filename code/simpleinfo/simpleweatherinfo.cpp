@@ -56,16 +56,17 @@ void SimpleWeatherInfo::initialControl()
     gridlayoutDescription->setContentsMargins({0,0,0,0});
 
     hlayoutSimpleInfo->addWidget(labelWeatherImg);
-    hlayoutSimpleInfo->addLayout(gridlayoutDescription);
 
     labelWarning=new QLabel(this);
     labelWarning->setObjectName("labelWarning");
     labelWarning->setText(u8"预警信息");
+    gridlayoutDescription->addWidget(labelWarning,0,0,1,2);
 
     labelTemperature=new QLabel(this);
     labelTemperature->setObjectName("labTemperature");
     labelTemperature->setAlignment(Qt::AlignCenter);
     labelTemperature->setText(u8"00℃");
+    gridlayoutDescription->addWidget(labelTemperature,1,0);
 
     labelAirQuality=new QLabel(this);
     labelAirQuality->setObjectName("labelAirQuality");
@@ -73,22 +74,18 @@ void SimpleWeatherInfo::initialControl()
     //labelAirQuality->setCheckable(false);
     labelAirQuality->setText(u8"空气质量");
     labelAirQuality->setAlignment(Qt::AlignCenter);
+    gridlayoutDescription->addWidget(labelAirQuality,1,1);
 
     labelRainStatus=new QLabel(this);
     labelRainStatus->setObjectName("labelRainStatus");
     labelRainStatus->setText(u8"");
     labelRainStatus->setAlignment(Qt::AlignCenter);
+    gridlayoutDescription->addWidget(labelRainStatus,2,0);
 
     labelTempMaxMin=new QLabel(this);
     labelTempMaxMin->setObjectName("labelTempMaxMin");
     labelTempMaxMin->setText(u8"00 ℃ / 00 ℃");
     labelTempMaxMin->setAlignment(Qt::AlignCenter);
-
-
-    gridlayoutDescription->addWidget(labelWarning,0,0,1,2);
-    gridlayoutDescription->addWidget(labelTemperature,1,0);
-    gridlayoutDescription->addWidget(labelAirQuality,1,1);
-    gridlayoutDescription->addWidget(labelRainStatus,2,0);
     gridlayoutDescription->addWidget(labelTempMaxMin,2,1);
 
     QFile cssfile(":/qss/resource/qss/simpleweatherinfo.css");
@@ -99,6 +96,19 @@ void SimpleWeatherInfo::initialControl()
                             .arg(Common::tranWidth(48)).arg(Common::tranHeight(32)));
     }
 
+    hlayoutSimpleInfo->addLayout(gridlayoutDescription);
+
+    dialTemp=new DialImage(this);
+    dialTemp->setObjectName("dialTemp");
+    dialTemp->setValue("温度",22);
+    dialTemp->setFixedSize(100,100);//Common::tranWidth(320),Common::tranHeight(320));
+    hlayoutSimpleInfo->addWidget(dialTemp);
+
+    dialHumidity=new DialImage(this);
+    dialHumidity->setObjectName("dialTemp");
+    dialHumidity->setValue("温度",22);
+    dialHumidity->setFixedSize(100,100);//Common::tranWidth(320),Common::tranHeight(320));
+    hlayoutSimpleInfo->addWidget(dialHumidity);
 }
 
 void SimpleWeatherInfo::setWeatherInfo(std::string name,std::string value)
