@@ -14,22 +14,22 @@ SOURCES += \
     code/iteminfobase/iteminfobase.cpp \
     code/main.cpp \
     code/precipitationforecast/precipitationforecast.cpp \
-    code/roomenvironmentmonitor.cpp \
     code/topinfo/topinfo.cpp \
     code/simpleinfo/simpleweatherinfo.cpp \
     code/weatherinfotoday/weatherinfotoday.cpp \
-    code/dialimage/dialimage.cpp
+    code/dialimage/dialimage.cpp \
+    code/weathermonitor.cpp
 
 HEADERS += \
     code/common/comdefine.h \
     code/dialplate/dialplate.h \
     code/iteminfobase/iteminfobase.h \
     code/precipitationforecast/precipitationforecast.h \
-    code/roomenvironmentmonitor.h \
     code/topinfo/topinfo.h \
     code/simpleinfo/simpleweatherinfo.h \
     code/weatherinfotoday/weatherinfotoday.h \
-    code/dialimage/dialimage.h
+    code/dialimage/dialimage.h \
+    code/weathermonitor.h
 
 RESOURCES += \
     code/roomenvironmentmonitor.qrc

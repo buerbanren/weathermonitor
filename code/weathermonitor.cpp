@@ -1,7 +1,7 @@
-#include "roomenvironmentmonitor.h"
+#include "weathermonitor.h"
 #include "code/common/comdefine.h"
 
-RoomEnvironmentMonitor::RoomEnvironmentMonitor(QWidget *parent)
+WeatherMonitor::WeatherMonitor(QWidget *parent)
     : QWidget(parent)
 {
     //this->setWindowFlags(Qt::FramelessWindowHint);
@@ -13,12 +13,12 @@ RoomEnvironmentMonitor::RoomEnvironmentMonitor(QWidget *parent)
     initNetworkConfig();
 }
 
-RoomEnvironmentMonitor::~RoomEnvironmentMonitor()
+WeatherMonitor::~WeatherMonitor()
 {
 
 }
 
-void RoomEnvironmentMonitor::resizeEvent(QResizeEvent *event)
+void WeatherMonitor::resizeEvent(QResizeEvent *event)
 {
     if(!topinfo || !gridlayoutMain)
         return;
@@ -33,7 +33,7 @@ void RoomEnvironmentMonitor::resizeEvent(QResizeEvent *event)
 
     topinfo->setFixedHeight(Common::tranHeight(32));
 
-    //simpleinfo->setFixedSize(Common::tranWidth())
+    simpleinfo->setFixedHeight(Common::tranHeight(320));
 
 	infoToday->setFixedSize(Common::tranWidth(540), Common::tranHeight(300));
 
@@ -42,7 +42,7 @@ void RoomEnvironmentMonitor::resizeEvent(QResizeEvent *event)
     QWidget::resizeEvent(event);
 }
 
-void RoomEnvironmentMonitor::resolveResponse()
+void WeatherMonitor::resolveResponse()
 {
     jsdoc = QJsonDocument::fromJson(jsdata);
     jsobj=jsdoc.object();
@@ -56,7 +56,7 @@ void RoomEnvironmentMonitor::resolveResponse()
 
         // 天气icon配置文件
         string content;
-        content = Common::readFileContent("G:/Programming/C++_Qt/weathermonitor/code/weathercodemap.json");
+        content = Common::readFileContent(":/weathericons/weathercodemap.json");
         QJsonParseError jserror;
         QJsonDocument jsdoc_icons=QJsonDocument::fromJson(content.data(),&jserror);
         if(jserror.error!=QJsonParseError::NoError)
@@ -120,7 +120,7 @@ void RoomEnvironmentMonitor::resolveResponse()
 
 }
 
-void RoomEnvironmentMonitor::initialControl()
+void WeatherMonitor::initialControl()
 {
     this->setStyleSheet("background-color:rgba(14,58,96,183);"
                         "border:0px;");
@@ -155,7 +155,7 @@ void RoomEnvironmentMonitor::initialControl()
     this->setLayout(gridlayoutMain);
 }
 
-void RoomEnvironmentMonitor::initNetworkConfig()
+void WeatherMonitor::initNetworkConfig()
 {
     pNetManager=new QNetworkAccessManager(this);
 
@@ -176,6 +176,6 @@ void RoomEnvironmentMonitor::initNetworkConfig()
     });
 
     // 响应完成解析数据
-    connect(pNetReply,&QNetworkReply::finished,this,&RoomEnvironmentMonitor::resolveResponse);
+    connect(pNetReply,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponse);
 
 }

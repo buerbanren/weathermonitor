@@ -68,6 +68,7 @@
         <file>resource/weathericons/901.png</file>
         <file>resource/weathericons/999.png</file>
         <file>resource/weathericons/LICENSE</file>
+        <file>weathercodemap.json</file>
     </qresource>
     <qresource prefix="/html">
         <file>precipitationforecast/map.html</file>

@@ -145,10 +145,10 @@
     <ClCompile Include="code\iteminfobase\iteminfobase.cpp" />
     <ClCompile Include="code\main.cpp" />
     <ClCompile Include="code\precipitationforecast\precipitationforecast.cpp" />
-    <ClCompile Include="code\roomenvironmentmonitor.cpp" />
     <ClCompile Include="code\simpleinfo\simpleweatherinfo.cpp" />
     <ClCompile Include="code\topinfo\topinfo.cpp" />
     <ClCompile Include="code\weatherinfotoday\weatherinfotoday.cpp" />
+    <ClCompile Include="code\weathermonitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\common\comdefine.h" />
@@ -174,16 +174,6 @@
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <ClInclude Include="code\precipitationforecast\precipitationforecast.h" />
-    <CustomBuild Include="code\roomenvironmentmonitor.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">code\roomenvironmentmonitor.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore code\roomenvironmentmonitor.h -o temp\release\moc\moc_roomenvironmentmonitor.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC code/roomenvironmentmonitor.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">code\roomenvironmentmonitor.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore code\roomenvironmentmonitor.h -o temp\debug\moc\moc_roomenvironmentmonitor.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC code/roomenvironmentmonitor.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
-    </CustomBuild>
     <ClInclude Include="code\simpleinfo\simpleweatherinfo.h" />
     <CustomBuild Include="code\topinfo\topinfo.h">
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">code\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
@@ -205,6 +195,16 @@
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC code/weatherinfotoday/weatherinfotoday.h</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
     </CustomBuild>
+    <CustomBuild Include="code\weathermonitor.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">code\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore code\weathermonitor.h -o temp\release\moc\moc_weathermonitor.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC code/weathermonitor.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">code\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore code\weathermonitor.h -o temp\debug\moc\moc_weathermonitor.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC code/weathermonitor.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="temp\debug\moc\moc_dialimage.cpp">
@@ -219,12 +219,6 @@
     <ClCompile Include="temp\release\moc\moc_iteminfobase.cpp">
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="temp\debug\moc\moc_roomenvironmentmonitor.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="temp\release\moc\moc_roomenvironmentmonitor.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="temp\debug\moc\moc_topinfo.cpp">
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
     </ClCompile>
@@ -235,6 +229,12 @@
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_weatherinfotoday.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="temp\debug\moc\moc_weathermonitor.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_weathermonitor.cpp">
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\rc\qrc_roomenvironmentmonitor.cpp">

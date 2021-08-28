@@ -37,7 +37,7 @@ WeatherInfoToday::WeatherInfoToday(QWidget *parent)
 	gridlayoutInfoToday->setContentsMargins({ 30,96,40,30 });
 
 	this->setLayout(gridlayoutInfoToday);
-    this->setStyleSheet("backgroud:transparent;");
+    this->setStyleSheet("background:transparent;");
 }
 
 void WeatherInfoToday::setWeatherInfo(string name, string value)

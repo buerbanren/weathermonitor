@@ -1,5 +1,5 @@
-#ifndef ROOMENVIRONMENTMONITOR_H
-#define ROOMENVIRONMENTMONITOR_H
+#ifndef WEATHERMONITOR_H
+#define WEATHERMONITOR_H
 
 #include <QWidget>
 #include <QGridLayout>
@@ -10,13 +10,13 @@
 #include "weatherinfotoday\weatherinfotoday.h"
 #include "precipitationforecast\precipitationforecast.h"
 
-class RoomEnvironmentMonitor : public QWidget
+class WeatherMonitor : public QWidget
 {
     Q_OBJECT
 
 public:
-    RoomEnvironmentMonitor(QWidget *parent = nullptr);
-    ~RoomEnvironmentMonitor();
+    WeatherMonitor(QWidget *parent = nullptr);
+    ~WeatherMonitor();
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -52,4 +52,4 @@ private:
 
 
 };
-#endif // ROOMENVIRONMENTMONITOR_H
+#endif // WEATHERMONITOR_H

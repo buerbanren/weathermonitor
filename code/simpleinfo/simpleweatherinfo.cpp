@@ -11,24 +11,7 @@ SimpleWeatherInfo::SimpleWeatherInfo(QWidget *parent) : QWidget(parent)
 
 SimpleWeatherInfo::~SimpleWeatherInfo()
 {
-    /*try{
-        delete hlayoutSimpleInfo;
-        delete labelWeatherImg;
-        delete gridlayoutDescription;
-        delete labelWarning;
-        delete labelTemperature;
-        delete labelAirQuality;
-        delete labelRainStatus;
-        delete labelTempMaxMin;
 
-        delete pNetManager;
-        delete pNetRequest;
-        delete pNetReply;
-
-    }catch(...)
-    {
-        return;
-    }*/
 }
 
 void SimpleWeatherInfo::resizeEvent(QResizeEvent *event)
@@ -56,6 +39,7 @@ void SimpleWeatherInfo::initialControl()
     gridlayoutDescription->setContentsMargins({0,0,0,0});
 
     hlayoutSimpleInfo->addWidget(labelWeatherImg);
+    hlayoutSimpleInfo->addSpacing(50);
 
     labelWarning=new QLabel(this);
     labelWarning->setObjectName("labelWarning");
@@ -97,12 +81,14 @@ void SimpleWeatherInfo::initialControl()
     }
 
     hlayoutSimpleInfo->addLayout(gridlayoutDescription);
+    hlayoutSimpleInfo->addSpacing(120);
 
     dialTemp=new DialImage(this);
     dialTemp->setObjectName("dialTemp");
     dialTemp->setValue("温度",22);
     dialTemp->setFixedSize(100,100);//Common::tranWidth(320),Common::tranHeight(320));
     hlayoutSimpleInfo->addWidget(dialTemp);
+    hlayoutSimpleInfo->addSpacing(82);
 
     dialHumidity=new DialImage(this);
     dialHumidity->setObjectName("dialTemp");
