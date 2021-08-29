@@ -1,6 +1,6 @@
 QLabel
 {
-    /*background:transparent;*/
+    background:transparent;
     font: bold "Microsoft YaHei";
     font-size: %1px;/*32px*/
     color: #ffffff;

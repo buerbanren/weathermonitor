@@ -49,7 +49,7 @@ void SimpleWeatherInfo::initialControl()
 
     labelWarning=new QLabel(this);
     labelWarning->setObjectName("labelWarning");
-    labelWarning->setText(u8"预警信息");
+    labelWarning->setText(u8"青岛市气象台2021年8月32日1");
     gridlayoutDescription->addWidget(labelWarning,0,0,1,2);
 
     labelTemperature=new QLabel(this);
