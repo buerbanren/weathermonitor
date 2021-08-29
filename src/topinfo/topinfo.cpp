@@ -1,6 +1,6 @@
 ﻿#include "topinfo.h"
 #include <QDebug>
-#include "code/common/comdefine.h"
+#include "src/common/comdefine.h"
 
 TopInfo::TopInfo(QWidget *parent) : QWidget(parent)
 {

@@ -57,6 +57,7 @@ private:
     };
 
     DialImage *dialTemp=nullptr;
+    QHBoxLayout *hlayoutDial=nullptr;
     DialImage *dialHumidity=nullptr;
 
 

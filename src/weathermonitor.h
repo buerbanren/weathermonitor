@@ -9,6 +9,7 @@
 #include "dialplate/dialplate.h"
 #include "weatherinfotoday\weatherinfotoday.h"
 #include "precipitationforecast\precipitationforecast.h"
+#include "weekendforecast/weekendforecast.h"
 
 class WeatherMonitor : public QWidget
 {
@@ -33,6 +34,7 @@ private:
 
     ItemInfoBase *infoToday=nullptr;
 	ItemInfoBase *preipitationForececast = nullptr;
+    ItemInfoBase *weekendForecast=nullptr;
 
 protected:
     void initNetworkConfig();

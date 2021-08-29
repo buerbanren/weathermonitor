@@ -35,5 +35,5 @@ void ItemInfoBase::resizeEvent(QResizeEvent *event)
 	label_title->setStyleSheet(QString("font-size:%1px;font-family:'Microsoft YaHei';color:white;")
 		.arg(Common::tranHeight(32)));
 	label_title->setFixedSize(this->width(), Common::tranHeight(38));
-	QWidget::resizeEvent(event);
+    QWidget::resizeEvent(event);
 }

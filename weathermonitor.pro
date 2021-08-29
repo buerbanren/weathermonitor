@@ -14,6 +14,7 @@ SOURCES += \
     src/iteminfobase/iteminfobase.cpp \
     src/main.cpp \
     src/precipitationforecast/precipitationforecast.cpp \
+    src/weekendforecast/weekendforecast.cpp \
     src/topinfo/topinfo.cpp \
     src/simpleinfo/simpleweatherinfo.cpp \
     src/weatherinfotoday/weatherinfotoday.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     src/dialplate/dialplate.h \
     src/iteminfobase/iteminfobase.h \
     src/precipitationforecast/precipitationforecast.h \
+    src/weekendforecast/weekendforecast.h \
     src/topinfo/topinfo.h \
     src/simpleinfo/simpleweatherinfo.h \
     src/weatherinfotoday/weatherinfotoday.h \

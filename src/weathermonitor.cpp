@@ -39,6 +39,8 @@ void WeatherMonitor::resizeEvent(QResizeEvent *event)
 
     preipitationForececast->setFixedSize(Common::tranWidth(540),Common::tranHeight(300));
 
+    //weekendForecast->setFixedSize(Common::tranWidth(540),Common::tranHeight(300));
+
     QWidget::resizeEvent(event);
 }
 
@@ -131,26 +133,28 @@ void WeatherMonitor::initialControl()
 
     // 顶部位置信息
     topinfo=new TopInfo(this);
+    gridlayoutMain->addWidget(topinfo,0,0,1,3);
 
     // 简要天气信息
     simpleinfo=new SimpleWeatherInfo(this);
+    gridlayoutMain->addWidget(simpleinfo,1,0,1,3);
 
     // 今日信息
 	infoToday = new WeatherInfoToday(this);
+    gridlayoutMain->addWidget(infoToday,2,0,1,1);
 
-    // 降水预报
+    // 12小时预报
 	preipitationForececast = new PrecipitationForecast(this);
+    gridlayoutMain->addWidget(preipitationForececast, 2, 1, 1, 1);
+
+    // 7天预报
+    //weekendForecast=new WeekendForecast(this);
+    //gridlayoutMain->addWidget(weekendForecast,2,2,1,1);
 
     spacerItemTB=new QSpacerItem(20,40,QSizePolicy::Minimum,QSizePolicy::QSizePolicy::Expanding);
 
 
-
-    gridlayoutMain->addWidget(topinfo,0,0,1,3);
-    gridlayoutMain->addWidget(simpleinfo,1,0,1,3);
-    gridlayoutMain->addWidget(infoToday,2,0,1,1);
-	gridlayoutMain->addWidget(preipitationForececast, 2, 1, 1, 1);
-
-    gridlayoutMain->addItem(spacerItemTB,3,0,1,2);
+    gridlayoutMain->addItem(spacerItemTB,3,0,1,3);
 
     this->setLayout(gridlayoutMain);
 }

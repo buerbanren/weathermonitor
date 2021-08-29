@@ -23,6 +23,12 @@ void SimpleWeatherInfo::resizeEvent(QResizeEvent *event)
 
     //labelAirQuality->setIconSize({Common::tranWidth(56),Common::tranHeight(56)});
 
+    hlayoutDial->setContentsMargins({Common::tranWidth(83),0,0,0});
+    hlayoutDial->setSpacing(Common::tranWidth(83));
+
+    dialTemp->setFixedSize(Common::tranWidth(320),Common::tranHeight(320));
+    dialHumidity->setFixedSize(Common::tranWidth(320),Common::tranHeight(320));
+
     QWidget::resizeEvent(event);
 }
 
@@ -39,7 +45,7 @@ void SimpleWeatherInfo::initialControl()
     gridlayoutDescription->setContentsMargins({0,0,0,0});
 
     hlayoutSimpleInfo->addWidget(labelWeatherImg);
-    hlayoutSimpleInfo->addSpacing(50);
+    //hlayoutSimpleInfo->addSpacing(50);
 
     labelWarning=new QLabel(this);
     labelWarning->setObjectName("labelWarning");
@@ -81,20 +87,22 @@ void SimpleWeatherInfo::initialControl()
     }
 
     hlayoutSimpleInfo->addLayout(gridlayoutDescription);
-    hlayoutSimpleInfo->addSpacing(120);
+    //hlayoutSimpleInfo->addSpacing(120);
+
+    hlayoutDial=new QHBoxLayout(this);
+    hlayoutDial->setContentsMargins({0,0,0,0});
 
     dialTemp=new DialImage(this);
     dialTemp->setObjectName("dialTemp");
     dialTemp->setValue("温度",22);
-    dialTemp->setFixedSize(100,100);//Common::tranWidth(320),Common::tranHeight(320));
-    hlayoutSimpleInfo->addWidget(dialTemp);
-    hlayoutSimpleInfo->addSpacing(82);
+    hlayoutDial->addWidget(dialTemp);
 
     dialHumidity=new DialImage(this);
     dialHumidity->setObjectName("dialTemp");
     dialHumidity->setValue("温度",22);
-    dialHumidity->setFixedSize(100,100);//Common::tranWidth(320),Common::tranHeight(320));
-    hlayoutSimpleInfo->addWidget(dialHumidity);
+    hlayoutDial->addWidget(dialHumidity);
+
+    hlayoutSimpleInfo->addLayout(hlayoutDial);
 }
 
 void SimpleWeatherInfo::setWeatherInfo(std::string name,std::string value)

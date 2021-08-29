@@ -4,6 +4,7 @@
 #include <QGridLayout>
 #include <QPainter>
 #include <QEvent>
+#include <QTimer>
 
 #include "../iteminfobase/iteminfobase.h"
 
@@ -17,6 +18,7 @@ class PrecipitationForecast : public ItemInfoBase
 {
 public:
     PrecipitationForecast(QWidget *parent);
+    ~PrecipitationForecast();
     virtual void setWeatherInfo(std::string name, std::string value){}
     void paintEvent(QPaintEvent *event);
 
@@ -27,6 +29,8 @@ public:
 
     bool eventFilter(QObject *object,QEvent *event);
 
+    void timingMove();
+
 private:
     QGridLayout *gridlayoutPrecipitation=nullptr;
     QWidget *widgetPrecipitationImage=nullptr;
@@ -35,6 +39,10 @@ private:
 
     std::vector<HourInfo> vecHoursInfo;
     QWidget *rainFore=nullptr;
+
+
+    QTimer timer;
+    int startX=0;
 
 };
 
