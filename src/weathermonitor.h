@@ -7,8 +7,8 @@
 #include "simpleinfo/simpleweatherinfo.h"
 #include "topinfo/topinfo.h"
 #include "dialplate/dialplate.h"
-#include "weatherinfotoday\weatherinfotoday.h"
-#include "precipitationforecast\precipitationforecast.h"
+#include "weatherinfotoday/weatherinfotoday.h"
+#include "precipitationforecast/precipitationforecast.h"
 #include "weekendforecast/weekendforecast.h"
 
 class WeatherMonitor : public QWidget

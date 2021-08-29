@@ -116,10 +116,10 @@ void WeekendForecast::timingMove()
     if(3000==timerDay.interval())
     {
         timerDay.stop();
-        timerDay.setInterval(40);
+        timerDay.setInterval(80);
         timerDay.start();
     }
-    else if(40 == timerDay.interval())
+    else if(80 == timerDay.interval())
     {
         startY-=6;
         this->update();

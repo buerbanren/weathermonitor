@@ -39,7 +39,7 @@ void WeatherMonitor::resizeEvent(QResizeEvent *event)
 
     preipitationForececast->setFixedSize(Common::tranWidth(540),Common::tranHeight(300));
 
-    //weekendForecast->setFixedSize(Common::tranWidth(540),Common::tranHeight(300));
+    weekendForecast->setFixedSize(Common::tranWidth(540),Common::tranHeight(300));
 
     QWidget::resizeEvent(event);
 }
@@ -126,7 +126,6 @@ void WeatherMonitor::initialControl()
 {
     this->setStyleSheet("background-color:rgba(14,58,96,183);"
                         "border:0px;");
-    this->resize(712,400);
 
     gridlayoutMain=new QGridLayout(this);
     gridlayoutMain->setContentsMargins({64,33,64,46});
@@ -148,13 +147,13 @@ void WeatherMonitor::initialControl()
     gridlayoutMain->addWidget(preipitationForececast, 2, 1, 1, 1);
 
     // 7天预报
-    //weekendForecast=new WeekendForecast(this);
-    //gridlayoutMain->addWidget(weekendForecast,2,2,1,1);
+    weekendForecast=new WeekendForecast(this);
+    gridlayoutMain->addWidget(weekendForecast,2,2,1,1);
 
     spacerItemTB=new QSpacerItem(20,40,QSizePolicy::Minimum,QSizePolicy::QSizePolicy::Expanding);
 
 
-    gridlayoutMain->addItem(spacerItemTB,3,0,1,3);
+    gridlayoutMain->addItem(spacerItemTB,3,0);
 
     this->setLayout(gridlayoutMain);
 }
