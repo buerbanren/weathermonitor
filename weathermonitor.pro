@@ -9,30 +9,30 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    code/common/comdefine.cpp \
-    code/dialplate/dialplate.cpp \
-    code/iteminfobase/iteminfobase.cpp \
-    code/main.cpp \
-    code/precipitationforecast/precipitationforecast.cpp \
-    code/topinfo/topinfo.cpp \
-    code/simpleinfo/simpleweatherinfo.cpp \
-    code/weatherinfotoday/weatherinfotoday.cpp \
-    code/dialimage/dialimage.cpp \
-    code/weathermonitor.cpp
+    src/common/comdefine.cpp \
+    src/dialplate/dialplate.cpp \
+    src/iteminfobase/iteminfobase.cpp \
+    src/main.cpp \
+    src/precipitationforecast/precipitationforecast.cpp \
+    src/topinfo/topinfo.cpp \
+    src/simpleinfo/simpleweatherinfo.cpp \
+    src/weatherinfotoday/weatherinfotoday.cpp \
+    src/dialimage/dialimage.cpp \
+    src/weathermonitor.cpp
 
 HEADERS += \
-    code/common/comdefine.h \
-    code/dialplate/dialplate.h \
-    code/iteminfobase/iteminfobase.h \
-    code/precipitationforecast/precipitationforecast.h \
-    code/topinfo/topinfo.h \
-    code/simpleinfo/simpleweatherinfo.h \
-    code/weatherinfotoday/weatherinfotoday.h \
-    code/dialimage/dialimage.h \
-    code/weathermonitor.h
+    src/common/comdefine.h \
+    src/dialplate/dialplate.h \
+    src/iteminfobase/iteminfobase.h \
+    src/precipitationforecast/precipitationforecast.h \
+    src/topinfo/topinfo.h \
+    src/simpleinfo/simpleweatherinfo.h \
+    src/weatherinfotoday/weatherinfotoday.h \
+    src/dialimage/dialimage.h \
+    src/weathermonitor.h
 
 RESOURCES += \
-    code/roomenvironmentmonitor.qrc
+    src/roomenvironmentmonitor.qrc
 
 TARGET = weathermonitor
 
@@ -43,7 +43,7 @@ MOC_DIR = temp/debug/moc
 OBJECTS_DIR = temp/debug/obj
 RCC_DIR = temp/debug/rc
 UI_DIR = temp/debug/qui
-DESTDIR = output/debug
+DESTDIR = build/debug
 }
 
 CONFIG(Release){
@@ -51,7 +51,7 @@ MOC_DIR = temp/debug/moc
 OBJECTS_DIR = temp/debug/obj
 RCC_DIR = temp/debug/
 UI_DIR = temp/debug/qui
-DESTDIR = output/debug
+DESTDIR = build/debug
 }
 
 # Default rules for deployment.

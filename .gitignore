@@ -6,10 +6,12 @@
 *.lo
 *.o
 *.obj
+*.ilk
 
 # Precompiled Headers
 *.gch
 *.pch
+*.pdb
 
 # Compiled Dynamic libraries
 *.so
@@ -32,6 +34,7 @@
 *.exe
 *.out
 *.app
+/build/*
 
 # VC Project files
 *.sln
