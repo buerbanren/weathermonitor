@@ -10,6 +10,9 @@ void DialImage::setValue(std::string name,int value)
 {
     imgDial->load(":/qss/resource/qss/dialbackground.png");
 
+    //*imgDial=imgDial->scaled(Common::tranWidth(320),Common::tranHeight(320),\
+                             Qt::AspectRatioMode::IgnoreAspectRatio,Qt::TransformationMode::SmoothTransformation);
+
     painter->begin(imgDial);
     /* 尽可能消除锯齿边缘 */
     painter->setRenderHint(QPainter::Antialiasing);
@@ -21,12 +24,12 @@ void DialImage::setValue(std::string name,int value)
 
     painter->setPen(QColor(255,255,255));
 
-    painter->setFont(QFont("Microsoft Yahei",Common::tranHeight(132)));
-    painter->drawText(Common::tranWidth(125),Common::tranHeight(201),QString::fromStdString(name));
+    painter->setFont(QFont("Microsoft Yahei",72,20));
+    painter->drawText(QRect{114,106,82,76},Qt::AlignTop | Qt::AlignHCenter, QString::number(value));
 
 
-    painter->setFont(QFont("Microsoft Yahei",Common::tranHeight(172)));
-    painter->drawText(Common::tranWidth(114),Common::tranHeight(118),QString::number(value));
+    painter->setFont(QFont("Microsoft Yahei",32));
+    painter->drawText(QRect{125,200,62,36},Qt::AlignTop | Qt::AlignHCenter, QString::fromStdString(name));
 
     painter->restore();
     painter->end();
