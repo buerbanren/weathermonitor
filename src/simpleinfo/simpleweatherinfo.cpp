@@ -1,11 +1,19 @@
 ﻿#include "simpleweatherinfo.h"
 #include <QFile>
 #include <QDebug>
+#include <QPainter>
 
 SimpleWeatherInfo::SimpleWeatherInfo(QWidget *parent) : QWidget(parent)
 {
     initialControl();
 
+    // 注册预警label的事件过滤器
+    labelWarning->installEventFilter(this);
+
+    timer.setInterval(10000);
+    timer.start();
+
+    connect(&timer, &QTimer::timeout,this, &SimpleWeatherInfo::timingMove);
 
 }
 
@@ -21,6 +29,7 @@ void SimpleWeatherInfo::resizeEvent(QResizeEvent *event)
 
     labelWeatherImg->setFixedHeight(Common::tranWidth(214));
 
+    labelWarning->setFixedWidth(Common::tranWidth(560));
     //labelAirQuality->setIconSize({Common::tranWidth(56),Common::tranHeight(56)});
 
     hlayoutDial->setContentsMargins({Common::tranWidth(83),0,0,0});
@@ -30,6 +39,36 @@ void SimpleWeatherInfo::resizeEvent(QResizeEvent *event)
     dialHumidity->setFixedSize(Common::tranWidth(320),Common::tranHeight(320));
 
     QWidget::resizeEvent(event);
+}
+
+bool SimpleWeatherInfo::eventFilter(QObject *object, QEvent *event)
+{
+    if(labelWarning == object)
+    {
+        if(!labelWarning->text().isEmpty())
+        {
+            strWarn="";
+            strWarn=labelWarning->text();
+            labelWarning->clear();
+        }
+
+        QPainter painter;
+        painter.begin(labelWarning);
+        painter.save();
+        //28px;
+
+        QRect _rect=labelWarning->rect();
+        _rect.setX(startX);
+        painter.setPen(QColor(0xff,0x00,0x00));
+        painter.setFont(QFont("Microsoft Yahei",Common::tranHeight(24)));
+
+        painter.drawText(_rect,Qt::AlignLeft | Qt::AlignVCenter,strWarn);
+
+        painter.restore();
+        painter.end();
+    }
+
+    return QWidget::eventFilter(object,event);
 }
 
 void SimpleWeatherInfo::initialControl()
@@ -116,4 +155,28 @@ void SimpleWeatherInfo::setWeatherInfo(std::string name,std::string value)
     auto it = mapInfoLabel.find(name);
     if(it!=mapInfoLabel.end())
         it->second->setText(value.c_str());
+}
+
+void SimpleWeatherInfo::timingMove()
+{
+    // 3s周期响应
+    if(10000==timer.interval())
+    {
+        timer.stop();
+        timer.setInterval(400);
+        timer.start();
+    }
+    else if(400 == timer.interval())
+    {
+        startX-=5;
+        qDebug()<<startX;
+        if(abs(startX) % 900 == 0)
+        {
+            timer.stop();
+            timer.setInterval(10000);
+            startX=0;
+            timer.start();
+        }
+        this->update();
+    }
 }

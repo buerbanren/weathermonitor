@@ -1,6 +1,8 @@
 #include "weathermonitor.h"
 #include "src/common/comdefine.h"
 
+#include <QMessageBox>
+
 WeatherMonitor::WeatherMonitor(QWidget *parent)
     : QWidget(parent)
 {
@@ -122,6 +124,37 @@ void WeatherMonitor::resolveResponse()
 
 }
 
+void WeatherMonitor::resolveResponseWarn()
+{
+    jsdoc = QJsonDocument::fromJson(jsdataWarn);
+    if(!jsdoc.isObject())
+        return;
+
+    jsobj=jsdoc.object();
+
+    auto it = jsobj.find("alertData");
+    if(it == jsobj.end())
+        return;
+
+    // 预警信息数组
+    QJsonArray valueArrWarn=it.value().toArray();
+
+    string value;
+
+
+    // 遍历所有预警信息
+    foreach (auto _it, valueArrWarn) {
+        auto it = _it.toObject().find("headline")->toString();
+        int pos = it.indexOf("宝山");
+        if(-1 == pos)
+            continue;
+
+        it = _it.toObject().find("description")->toString();
+        simpleinfo->setWeatherInfo("warn",it.toStdString());
+        break;
+    }
+}
+
 void WeatherMonitor::initialControl()
 {
     this->setStyleSheet("background-color:rgba(14,58,96,183);"
@@ -162,6 +195,7 @@ void WeatherMonitor::initNetworkConfig()
 {
     pNetManager=new QNetworkAccessManager(this);
 
+    // 今日天气详情请求
     pNetRequest=new QNetworkRequest;
 
     QSslConfiguration config;
@@ -173,6 +207,7 @@ void WeatherMonitor::initNetworkConfig()
     pNetRequest->setUrl(QUrl(QString(REQUEST_MSN_URL)));
 
     pNetReply = pNetManager->get(*pNetRequest);
+    // 今日天气信息获取
     connect(pNetReply,&QNetworkReply::readyRead,[&]()
     {
        jsdata.append(pNetReply->readAll());
@@ -181,4 +216,16 @@ void WeatherMonitor::initNetworkConfig()
     // 响应完成解析数据
     connect(pNetReply,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponse);
 
+
+    // 预警信息请求
+    pNetRequestWarn=new QNetworkRequest;
+    pNetRequestWarn->setUrl(QUrl(QString(QString(REQUEST_ALARM_URL))));
+
+    pNetReplyWarn=pNetManager->get(*pNetRequestWarn);
+    connect(pNetReplyWarn,&QNetworkReply::readyRead,[&]()
+    {
+        jsdataWarn.append(pNetReplyWarn->readAll());
+    });
+
+    connect(pNetReplyWarn,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseWarn);
 }

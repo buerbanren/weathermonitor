@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QPushButton>
+#include <QTimer>
 
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -26,9 +27,11 @@ public:
     explicit SimpleWeatherInfo(QWidget *parent = nullptr);
     ~SimpleWeatherInfo();
     void setWeatherInfo(std::string name, std::string value);
+    void timingMove();
 
 protected:
     void resizeEvent(QResizeEvent *event);
+    bool eventFilter(QObject *object,QEvent *event);
 
 signals:
 
@@ -46,6 +49,10 @@ private:
         QLabel *labelTempMaxMin=nullptr;
 
     QString strStyle;
+
+    int startX=0;
+    QString strWarn;
+    QTimer timer;
 
     std::map<std::string,QLabel * &> mapInfoLabel={
         std::pair<std::string,QLabel * &>("warn", labelWarning),

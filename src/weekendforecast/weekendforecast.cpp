@@ -123,7 +123,6 @@ void WeekendForecast::timingMove()
     {
         startY-=6;
         this->update();
-        qDebug()<<"timer slot";
         if(abs(startY) % 54 == 0)
         {
             timerDay.stop();
