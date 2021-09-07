@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QGridLayout>
+#include <QDateTime>
 
 #include "simpleinfo/simpleweatherinfo.h"
 #include "topinfo/topinfo.h"
@@ -21,7 +22,7 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event);
-    void resolveResponse();
+    void resolveResponseWeather();
     void resolveResponseWarn();
 
 private:
@@ -33,9 +34,9 @@ private:
     SimpleWeatherInfo *simpleinfo=nullptr;
     QSpacerItem *spacerItemTB=nullptr;
 
-    ItemInfoBase *infoToday=nullptr;
-	ItemInfoBase *preipitationForececast = nullptr;
-    ItemInfoBase *weekendForecast=nullptr;
+    WeatherInfoToday *infoToday=nullptr;
+    PrecipitationForecast *preipitationForececast = nullptr;
+    WeekendForecast *weekendForecast=nullptr;
 
 protected:
     void initNetworkConfig();

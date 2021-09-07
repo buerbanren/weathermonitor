@@ -1,6 +1,5 @@
 ﻿#include "simpleweatherinfo.h"
 #include <QFile>
-#include <QDebug>
 #include <QPainter>
 
 SimpleWeatherInfo::SimpleWeatherInfo(QWidget *parent) : QWidget(parent)
@@ -169,7 +168,6 @@ void SimpleWeatherInfo::timingMove()
     else if(400 == timer.interval())
     {
         startX-=5;
-        qDebug()<<startX;
         if(abs(startX) % 900 == 0)
         {
             timer.stop();

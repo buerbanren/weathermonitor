@@ -1,7 +1,6 @@
 ﻿#include "weekendforecast.h"
 #include <QDesktopServices>
 #include <QUrl>
-#include <QDebug>
 
 WeekendForecast::WeekendForecast(QWidget *parent)
     :ItemInfoBase(parent)

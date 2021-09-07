@@ -46,7 +46,7 @@ void WeatherMonitor::resizeEvent(QResizeEvent *event)
     QWidget::resizeEvent(event);
 }
 
-void WeatherMonitor::resolveResponse()
+void WeatherMonitor::resolveResponseWeather()
 {
     jsdoc = QJsonDocument::fromJson(jsdata);
     jsobj=jsdoc.object();
@@ -56,7 +56,6 @@ void WeatherMonitor::resolveResponse()
         auto weather_current = jsobj["responses"].toArray()[0].toObject()["weather"].toArray()[0].toObject()["current"].toObject();
         value=weather_current["capAbbr"].toString().toStdString();
         simpleinfo->setWeatherInfo("weather",value);
-        qDebug()<<value.c_str();
 
         // 天气icon配置文件
         string content;
@@ -94,7 +93,7 @@ void WeatherMonitor::resolveResponse()
         value.append(u8"℃");
         simpleinfo->setWeatherInfo("tempmaxmin",value);
 
-
+    {
         // 设置今日信息
         // 体感温度
         value=QString::number(weather_current["feels"].toInt()).toStdString();
@@ -118,7 +117,38 @@ void WeatherMonitor::resolveResponse()
         value=weather_forecast["days"].toArray()[0].toObject()["almanac"].toObject()["sunset"].toString().toStdString();
         value = value.substr(11,5);
         infoToday->setWeatherInfo("sunset",value);
+    }
 
+    /*
+     * 12小时天气预报
+     */
+        auto weather_days=weather_forecast.value("days").toArray();
+
+        std::vector<HourInfo> hoursdata;
+
+        for(int i=0;i<2;i++)
+        {
+            auto forecast_dayinfo=weather_days.at(i).toObject().value("hourly").toArray();
+            auto ithour=forecast_dayinfo.begin();
+            while(ithour!=forecast_dayinfo.end())
+            {
+                QString valueTime=ithour->toObject().value("valid").toString();
+                QDateTime qdateTime=QDateTime::fromString(valueTime ,"yyyy-MM-ddThh:mm:ss+08:00");
+                valueTime=qdateTime.toString("hh");
+                QString cap=ithour->toObject().value("cap").toString();
+                int temp=ithour->toObject().value("temp").toInt();
+
+                hoursdata.push_back({valueTime.toInt(),cap,temp});
+
+                if(hoursdata.size()==24)
+                    goto endding;
+                ithour++;
+            }
+        }
+        endding:
+
+        // 设置未来24小时预报信息
+        preipitationForececast->setHoursInfo(hoursdata);
 
 
 
@@ -214,7 +244,7 @@ void WeatherMonitor::initNetworkConfig()
     });
 
     // 响应完成解析数据
-    connect(pNetReply,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponse);
+    connect(pNetReply,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseWeather);
 
 
     // 预警信息请求

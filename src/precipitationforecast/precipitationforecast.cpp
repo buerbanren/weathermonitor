@@ -118,7 +118,7 @@ void PrecipitationForecast::timingMove()
             timer.setInterval(3000);
             timer.start();
         }
-        if(abs(startX) / 110 == 3)
+        if(abs(startX) / 110 == 29)
         {
             startX=0;
         }
