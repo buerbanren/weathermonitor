@@ -78,7 +78,7 @@ void SimpleWeatherInfo::initialControl()
 
     // 天气图标
     labelWeatherImg=new QLabel(this);
-    labelWeatherImg->setStyleSheet("image:url(:/weathericons/resource/weathericons/302.png);");
+    //labelWeatherImg->setStyleSheet("image:url(:/weathericons/resource/weathericons/302.png);");
     gridlayoutDescription=new QGridLayout(this);
     gridlayoutDescription->setContentsMargins({0,0,0,0});
 
@@ -87,7 +87,7 @@ void SimpleWeatherInfo::initialControl()
 
     labelWarning=new QLabel(this);
     labelWarning->setObjectName("labelWarning");
-    labelWarning->setText(u8"青岛市气象台2021年8月32日1");
+    //labelWarning->setText(u8"青岛市气象台2021年8月32日1");
     gridlayoutDescription->addWidget(labelWarning,0,0,1,2);
 
     labelTemperature=new QLabel(this);
@@ -132,12 +132,12 @@ void SimpleWeatherInfo::initialControl()
 
     dialTemp=new DialImage(this);
     dialTemp->setObjectName("dialTemp");
-    dialTemp->setValue("温度",22);
+    dialTemp->setValue("温度℃",22);
     hlayoutDial->addWidget(dialTemp);
 
     dialHumidity=new DialImage(this);
     dialHumidity->setObjectName("dialTemp");
-    dialHumidity->setValue("温度",22);
+    dialHumidity->setValue("湿度%",50);
     hlayoutDial->addWidget(dialHumidity);
 
     hlayoutSimpleInfo->addLayout(hlayoutDial);

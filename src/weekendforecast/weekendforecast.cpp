@@ -18,13 +18,13 @@ WeekendForecast::WeekendForecast(QWidget *parent)
     this->setLayout(gridlayoutPrecipitation);
     this->setStyleSheet("background:transparent;");
 
-	vecDaysInfo.push_back({ 0,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",23,25 });
-	vecDaysInfo.push_back({ 1,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",20,24 });
-	vecDaysInfo.push_back({ 2,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",03,23 });
-	vecDaysInfo.push_back({ 3,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",20,22 });
-	vecDaysInfo.push_back({ 4,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",20,22 });
-	vecDaysInfo.push_back({ 5,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",18,21 });
-	vecDaysInfo.push_back({ 6,"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png",u8"北风",u8"3级",18,29 });
+    vecDaysInfo.push_back({ "09-12",u8"多云",u8"北风",u8"3级",23,25 });
+    vecDaysInfo.push_back({ "09-13",u8"晴",u8"北风",u8"3级",20,24 });
+    vecDaysInfo.push_back({ "09-14",u8"阵雨",u8"北风",u8"3级",03,23 });
+    vecDaysInfo.push_back({ "09-15",u8"阵雨",u8"北风",u8"3级",20,22 });
+    vecDaysInfo.push_back({ "09-16",u8"阵雨",u8"北风",u8"3级",20,22 });
+    vecDaysInfo.push_back({ "09-17",u8"阵雨",u8"北风",u8"3级",18,21 });
+    vecDaysInfo.push_back({ "09-18",u8"阵雨",u8"北风",u8"3级",18,29 });
 
     painter=new QPainter();
 
@@ -81,19 +81,18 @@ bool WeekendForecast::eventFilter(QObject *object, QEvent *event)
         int index=0;
         foreach(auto it, vecDaysInfo)
         {
-			// 对应工作日
+            // 预报日期
             painter->setFont(QFont("Microsoft Yahei", Common::tranHeight(18), 1));
-			_temp = QString::fromStdString(mapDays.at(it.day));
-            painter->drawText(QRect{ Common::tranWidth(32), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(72), Common::tranHeight(52) }, Qt::AlignCenter, _temp);
+            painter->drawText(QRect{ Common::tranWidth(32), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(72), Common::tranHeight(52) }, Qt::AlignCenter, it.day.data());
 
 			// 天气图标
-            QImage ico(u8"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png","png");
+            QImage ico(it.strIcoPath.data(),"png");
             painter->drawImage(QRect{ Common::tranWidth(169), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(57),Common::tranHeight(52) }, ico, ico.rect());
 
 			// 风力
 			painter->setFont(QFont("Microsoft Yahei", Common::tranHeight(18)));
-			_temp = QString(u8"%1 %2").arg(it.windDirection).arg(it.windRank);
-            painter->drawText(QRect{ Common::tranWidth(270), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(86),Common::tranHeight(52) }, Qt::AlignCenter, _temp);
+            _temp = QString(u8"%1 %2").arg(it.windDirection.data()).arg(it.windRank.data());
+            painter->drawText(QRect{ Common::tranWidth(270), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(96),Common::tranHeight(52) }, Qt::AlignCenter, _temp);
 
 			// 最高最低温度
             painter->setFont(QFont("Microsoft Yahei",Common::tranHeight(18)));

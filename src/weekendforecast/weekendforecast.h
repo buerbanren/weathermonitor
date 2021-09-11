@@ -7,13 +7,14 @@
 #include <QTimer>
 #include <string>
 
+#include "../common/comdefine.h"
 #include "../iteminfobase/iteminfobase.h"
 
 struct DayInfo{
-    int day;
-    QString strIcoPath;
-    QString windDirection;
-    QString windRank;
+    string day;
+    string strIcoPath;
+    string windDirection;
+    string windRank;
     int tempMin;
     int tempMax;
 };
@@ -47,16 +48,6 @@ private:
 
     QTimer timerDay;
     int startY=0;
-
-	std::map<int, std::string> mapDays = {
-		std::pair<int,std::string>(0,"星期天"),
-		std::pair<int,std::string>(1,"星期一"),
-		std::pair<int,std::string>(2,"星期二"),
-		std::pair<int,std::string>(3,"星期三"),
-		std::pair<int,std::string>(4,"星期四"),
-		std::pair<int,std::string>(5,"星期五"),
-		std::pair<int,std::string>(6,"星期六")
-    };
 
 };
 

@@ -120,39 +120,73 @@ void WeatherMonitor::resolveResponseWeather()
     }
 
     /*
-     * 12小时天气预报
+     * 24小时天气预报
      */
-        auto weather_days=weather_forecast.value("days").toArray();
+    auto weather_days=weather_forecast.value("days").toArray();
 
-        std::vector<HourInfo> hoursdata;
+    std::vector<HourInfo> hoursdata;
 
-        for(int i=0;i<2;i++)
+    for(int i=0;i<2;i++)
+    {
+        auto forecast_dayinfo=weather_days.at(i).toObject().value("hourly").toArray();
+        auto ithour=forecast_dayinfo.begin();
+        while(ithour!=forecast_dayinfo.end())
         {
-            auto forecast_dayinfo=weather_days.at(i).toObject().value("hourly").toArray();
-            auto ithour=forecast_dayinfo.begin();
-            while(ithour!=forecast_dayinfo.end())
-            {
-                QString valueTime=ithour->toObject().value("valid").toString();
-                QDateTime qdateTime=QDateTime::fromString(valueTime ,"yyyy-MM-ddThh:mm:ss+08:00");
-                valueTime=qdateTime.toString("hh");
+            QString valueTime=ithour->toObject().value("valid").toString();
+            QDateTime qdateTime=QDateTime::fromString(valueTime ,"yyyy-MM-ddThh:mm:ss+08:00");
+            valueTime=qdateTime.toString("hh");
 
-                // 天气类型，需要转换为对应图标路径
-                QString cap=ithour->toObject().value("cap").toString();
-                int temp=ithour->toObject().value("temp").toInt();
+            // 天气类型，需要转换为对应图标路径
+            QString cap=ithour->toObject().value("cap").toString();
+            int temp=ithour->toObject().value("temp").toInt();
 
-                hoursdata.push_back({valueTime.toInt(),cap,temp});
+            hoursdata.push_back({valueTime.toInt(),cap,temp});
 
-                if(hoursdata.size()==24)
-                    break;
-                ithour++;
-            }
             if(hoursdata.size()==24)
                 break;
+            ithour++;
         }
-        // 设置未来24小时预报信息
-        preipitationForececast->setHoursInfo(hoursdata);
+        if(hoursdata.size()==24)
+            break;
+    }
+    // 设置未来24小时预报信息
+    preipitationForececast->setHoursInfo(hoursdata);
 
+    /*
+     * 未来一周天气预报
+     * 包含天气、风向、风力、温度
+     *
+     */
+    auto weather_week=weather_forecast.value("days").toArray();
 
+    std::vector<DayInfo> weekdaydata;
+
+    for(int i=0;i<7;i++)
+    {
+        auto totalInfo=weather_week.at(i).toObject().value("daily").toObject();
+        // 日期
+        string str_dateTime=totalInfo.value("valid").toString().toStdString(); // 2021-09-11T11:00:00+08:00
+        QDateTime _dateTime=QDateTime::fromString(str_dateTime.substr(0,10).data(),"yyyy-MM-dd");
+        str_dateTime=_dateTime.toString("MM-dd").toStdString();
+
+        // 天气类型
+        string weatherIcoTtype=totalInfo.value("pvdrCap").toString().toStdString();
+
+        // 风力及风向
+        string windDir=totalInfo.value("pvdrWindDir").toString().toStdString();
+        string windSpeed=totalInfo.value("pvdrWindSpd").toString().toStdString();
+
+        // 最高最低温
+        int tempHi=totalInfo.value("tempHi").toInt();
+        int tempLO=totalInfo.value("tempLo").toInt();
+
+        DayInfo tempinfo={str_dateTime,Common::convertIcoType2Path(weatherIcoTtype),
+                              windDir,windSpeed,tempLO,tempHi};
+
+        weekdaydata.push_back(tempinfo);
+
+    }
+    weekendForecast->setDaysInfo(weekdaydata);
 
 }
 

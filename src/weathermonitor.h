@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QDateTime>
+#include <QString>
 
 #include "simpleinfo/simpleweatherinfo.h"
 #include "topinfo/topinfo.h"

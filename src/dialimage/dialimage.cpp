@@ -29,7 +29,7 @@ void DialImage::setValue(std::string name,int value)
 
 
     painter->setFont(QFont("Microsoft Yahei",32));
-    painter->drawText(QRect{125,200,62,36},Qt::AlignTop | Qt::AlignHCenter, QString::fromStdString(name));
+    painter->drawText(QRect{105,200,102,36},Qt::AlignTop | Qt::AlignHCenter, QString::fromStdString(name));
 
     painter->restore();
     painter->end();
