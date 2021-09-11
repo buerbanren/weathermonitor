@@ -1,7 +1,12 @@
 #ifndef COMDEFINE_H
 #define COMDEFINE_H
 
+#include <QDebug>
 #include <QWidget>
+#include <QJsonParseError>
+#include <QJsonArray>
+#include <QJsonObject>
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -29,6 +34,8 @@ public:
 	static int tranWidth(int width);
 	static int tranHeight(int height);
     static string readFileContent(string filepath);
+    static string convertIcoType2Path(string type);
+
 
 private:
 	static QWidget *rootWidget;

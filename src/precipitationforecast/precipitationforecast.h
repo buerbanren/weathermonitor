@@ -6,11 +6,12 @@
 #include <QEvent>
 #include <QTimer>
 
+#include "../common/comdefine.h"
 #include "../iteminfobase/iteminfobase.h"
 
 struct HourInfo{
     int hour;
-    QString strIcoPath;
+    QString type;
     int temp;
 };
 

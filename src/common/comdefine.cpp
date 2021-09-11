@@ -44,3 +44,30 @@ string Common::readFileContent(string filepath)
     file.close();
     return content;
 }
+
+string Common::convertIcoType2Path(string type)
+{
+    string icoPath=":/weathericons/resource/weathericons/";
+    // 天气icon配置文件
+    string content;
+    content = Common::readFileContent("../../src/weathercodemap.json");
+    QJsonParseError jserror;
+    QJsonDocument jsdoc_icons=QJsonDocument::fromJson(content.data(),&jserror);
+    if(jserror.error!=QJsonParseError::NoError)
+    {
+        qDebug()<<u8"本地天气图标配置文件解析失败";
+        return "";
+    }
+
+    // 天气图标
+    auto jsvalueicons = jsdoc_icons.object();
+    auto it = jsvalueicons.find(type.c_str());
+    if(it!=jsvalueicons.end())
+    {
+        icoPath.append(it.value().toObject().value("code").toString().toStdString());
+        icoPath.append(".png");
+        return icoPath;
+    }
+
+    return "";
+}

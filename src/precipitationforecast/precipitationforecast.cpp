@@ -84,7 +84,7 @@ bool PrecipitationForecast::eventFilter(QObject *object, QEvent *event)
             painter->setFont(QFont("Microsoft Yahei",Common::tranHeight(18)));
             painter->drawText(QRect{Common::tranWidth(startX + 2 + 110 *index), 0, Common::tranWidth(96), Common::tranHeight(28)}, Qt::AlignHCenter, QString("%1:00").arg(it.hour));
 
-            QImage ico(u8"G:/软件设计稿/和风天气图标/WeatherIcon/weather-icon-S2/256/403.png","png");
+            QImage ico(Common::convertIcoType2Path(it.type.toStdString()).data(),"png");
             painter->drawImage(QRect{Common::tranWidth(startX + 110 * index), Common::tranHeight(33), Common::tranWidth(104),Common::tranHeight(104)},ico,ico.rect());
 
             painter->setFont(QFont("Microsoft Yahei",Common::tranHeight(18)));
@@ -118,7 +118,7 @@ void PrecipitationForecast::timingMove()
             timer.setInterval(3000);
             timer.start();
         }
-        if(abs(startX) / 110 == 29)
+        if(abs(startX) / 110 == 21)
         {
             startX=0;
         }

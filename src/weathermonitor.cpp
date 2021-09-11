@@ -135,18 +135,20 @@ void WeatherMonitor::resolveResponseWeather()
                 QString valueTime=ithour->toObject().value("valid").toString();
                 QDateTime qdateTime=QDateTime::fromString(valueTime ,"yyyy-MM-ddThh:mm:ss+08:00");
                 valueTime=qdateTime.toString("hh");
+
+                // 天气类型，需要转换为对应图标路径
                 QString cap=ithour->toObject().value("cap").toString();
                 int temp=ithour->toObject().value("temp").toInt();
 
                 hoursdata.push_back({valueTime.toInt(),cap,temp});
 
                 if(hoursdata.size()==24)
-                    goto endding;
+                    break;
                 ithour++;
             }
+            if(hoursdata.size()==24)
+                break;
         }
-        endding:
-
         // 设置未来24小时预报信息
         preipitationForececast->setHoursInfo(hoursdata);
 
