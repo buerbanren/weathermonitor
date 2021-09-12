@@ -29,8 +29,8 @@ using namespace std;
 #define REQUEST_LOCALIPURL "http://myip.ipip.net"
 #define TENCENT_LOCATIONHOST "https://apis.map.qq.com"
 #define TENCENT_LOCATIONPATH "/ws/location/v1/ip?"
-#define TENCENT_URL_TOKEN "JLGBZ-R3BC6-S7LSW-MG2FQ-AOOEO-WWBVO"
-#define TENCENT_URL_SK "h2fTBVJCCygzYDdDJl1TtkluqmUXa9xz"
+#define TENCENT_URL_TOKEN ""
+#define TENCENT_URL_SK ""
 
 class Common {
 
