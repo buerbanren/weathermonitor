@@ -42,4 +42,4 @@
 *.usr
 *.Debug
 *.Release
-common.h
+comdefine.h
