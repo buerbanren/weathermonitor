@@ -41,8 +41,8 @@ private:
     PrecipitationForecast *preipitationForececast = nullptr;
     WeekendForecast *weekendForecast=nullptr;
 
-protected:
-    void initNetworkConfig();
+public:
+    void startNetworkConfig();
 
 
 private:
@@ -50,6 +50,8 @@ private:
     QNetworkRequest *pNetRequest=nullptr;
     QNetworkReply *pNetReply=nullptr;
     QByteArray jsdata;
+
+    QNetworkReply *pNetReplyTencentLocation = nullptr;
 
     QNetworkRequest *pNetRequestLocation=nullptr;
     QNetworkReply *pNetReplyLocation=nullptr;

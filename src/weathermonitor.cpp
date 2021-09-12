@@ -14,7 +14,7 @@ WeatherMonitor::WeatherMonitor(QWidget *parent)
 
 	Common::setRootWidget(this);
 
-    initNetworkConfig();
+    startNetworkConfig();
 }
 
 WeatherMonitor::~WeatherMonitor()
@@ -275,7 +275,6 @@ void WeatherMonitor::resolveResponseLocation()
     qDebug()<<requestUrl.data();
     pNetRequestLocation->setUrl(QUrl(requestUrl.data()));
 
-	QNetworkReply *pNetReplyTencentLocation = nullptr;
 	pNetReplyTencentLocation = pNetManager->get(*pNetRequestLocation);
 
 	locationData.clear();
@@ -316,8 +315,6 @@ void WeatherMonitor::resolveResponseLocation()
 void WeatherMonitor::requestWeatherInfo()
 {
     // 今日天气详情请求
-    pNetRequest=new QNetworkRequest;
-
     QSslConfiguration config;
     config=pNetRequest->sslConfiguration();
     config.setProtocol(QSsl::SslProtocol::TlsV1SslV3);
@@ -338,7 +335,6 @@ void WeatherMonitor::requestWeatherInfo()
 
 
     // 预警信息请求
-    pNetRequestWarn=new QNetworkRequest;
     pNetRequestWarn->setUrl(QUrl(QString(QString(REQUEST_ALARM_URL))));
 
     pNetReplyWarn=pNetManager->get(*pNetRequestWarn);
@@ -384,14 +380,19 @@ void WeatherMonitor::initialControl()
     gridlayoutMain->addItem(spacerItemTB,3,0);
 
     this->setLayout(gridlayoutMain);
+
+    // 网络初始化
+    pNetManager=new QNetworkAccessManager(this);
+    pNetRequestLocation=new QNetworkRequest;
+
+    pNetRequest=new QNetworkRequest;
+    pNetRequestWarn=new QNetworkRequest;
 }
 
-void WeatherMonitor::initNetworkConfig()
+void WeatherMonitor::startNetworkConfig()
 {
-    pNetManager=new QNetworkAccessManager(this);
 
     // ip地址转行政区域
-    pNetRequestLocation=new QNetworkRequest;
     pNetRequestLocation->setUrl(QUrl(QString(REQUEST_LOCALIPURL)));
 
     pNetReplyLocation = pNetManager->get(*pNetRequestLocation);
