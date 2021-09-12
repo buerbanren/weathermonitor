@@ -178,3 +178,13 @@ void SimpleWeatherInfo::timingMove()
         this->update();
     }
 }
+
+void SimpleWeatherInfo::setDistrict(string district)
+{
+    this->district=district;
+}
+
+string SimpleWeatherInfo::getDistrict()
+{
+    return this->district;
+}

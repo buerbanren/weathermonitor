@@ -9,6 +9,11 @@ TopInfo::TopInfo(QWidget *parent) : QWidget(parent)
     initialControl();
 }
 
+void TopInfo::setCityInfo(string district)
+{
+    labTopInfoAddress->setText(district.data());
+}
+
 void TopInfo::resizeEvent(QResizeEvent *event)
 {
     // 加载样式
@@ -37,7 +42,7 @@ void TopInfo::initialControl()
     labTopInfoAddress=new QLabel(this);
     labTopInfoAddress->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 	labTopInfoAddress->setFixedSize(94, 32);
-	labTopInfoAddress->setText(u8"黄岛区");
+    labTopInfoAddress->setText(u8"未知地区");
 
     spacerItemLR2=new QSpacerItem(40,20,QSizePolicy::Expanding,QSizePolicy::Minimum);
 

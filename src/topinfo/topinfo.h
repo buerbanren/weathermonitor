@@ -7,12 +7,16 @@
 #include <QDate>
 #include <QFile>
 #include <QHBoxLayout>
+#include <string>
 
 class TopInfo : public QWidget
 {
     Q_OBJECT
 public:
     explicit TopInfo(QWidget *parent = nullptr);
+
+    void setCityInfo(std::string district);
+
 
 protected:
     virtual void resizeEvent(QResizeEvent *event);

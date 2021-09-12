@@ -24,8 +24,14 @@ using namespace std;
 #define REQUEST_HOST "weather.com.cn"
 #define REQUEST_DOMAIN_PRECIPITATION "d1"
 #define REQUEST_DOMAIN_WEATHER "forecast"
-#define REQUEST_MSN_URL u8"https://api.msn.com/weather/overview?locale=zh-CN&lat=31.648744&lon=105.1739788&units=C&region=CN&appId=9e21380c-ff19-4c78-b4ea-19558e93a5d3&apiKey=OkWqHMuutahBXs3dBoygqCjgXRt6CV4i5V7SRQURrT&ocid=weather-app-win&wrapOData=false"
+#define REQUEST_MSN_URL u8"https://api.msn.com/weather/overview?locale=zh-CN&lat=%1&lon=%2&units=C&region=CN&appId=9e21380c-ff19-4c78-b4ea-19558e93a5d3&apiKey=OkWqHMuutahBXs3dBoygqCjgXRt6CV4i5V7SRQURrT&ocid=weather-app-win&wrapOData=false"
 #define REQUEST_GEONAME_URL "https://map.baidu.com/?newmap=1&qt=cen&b=12859000,4710000;12863000,4714000&l=15&t=1629722656494"
+#define REQUEST_LOCALIPURL "http://myip.ipip.net"
+#define TENCENT_LOCATIONHOST "https://apis.map.qq.com"
+#define TENCENT_LOCATIONPATH "/ws/location/v1/ip?"
+#define TENCENT_URL_TOKEN "JLGBZ-R3BC6-S7LSW-MG2FQ-AOOEO-WWBVO"
+#define TENCENT_URL_SK "h2fTBVJCCygzYDdDJl1TtkluqmUXa9xz"
+
 class Common {
 
 public:
@@ -35,11 +41,16 @@ public:
 	static int tranHeight(int height);
     static string readFileContent(string filepath);
     static string convertIcoType2Path(string type);
+    static void setMsgWeatherUrl(double _lat,double _lon);
+    static string getMsnWeatherUrl();
 
 
 private:
-	static QWidget *rootWidget;
+    static QWidget *rootWidget;
 
+    static double lon;
+    static double lat;
 };
+
 
 #endif // COMDEFINE_H

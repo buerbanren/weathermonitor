@@ -87,12 +87,12 @@ bool WeekendForecast::eventFilter(QObject *object, QEvent *event)
 
 			// 天气图标
             QImage ico(it.strIcoPath.data(),"png");
-            painter->drawImage(QRect{ Common::tranWidth(169), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(57),Common::tranHeight(52) }, ico, ico.rect());
+            painter->drawImage(QRect{ Common::tranWidth(149), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(57),Common::tranHeight(52) }, ico, ico.rect());
 
 			// 风力
 			painter->setFont(QFont("Microsoft Yahei", Common::tranHeight(18)));
             _temp = QString(u8"%1 %2").arg(it.windDirection.data()).arg(it.windRank.data());
-            painter->drawText(QRect{ Common::tranWidth(270), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(96),Common::tranHeight(52) }, Qt::AlignCenter, _temp);
+            painter->drawText(QRect{ Common::tranWidth(230), Common::tranHeight(startY + 0 + index * 52), Common::tranWidth(176),Common::tranHeight(52) }, Qt::AlignCenter, _temp);
 
 			// 最高最低温度
             painter->setFont(QFont("Microsoft Yahei",Common::tranHeight(18)));

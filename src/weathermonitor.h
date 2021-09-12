@@ -25,6 +25,8 @@ protected:
     void resizeEvent(QResizeEvent *event);
     void resolveResponseWeather();
     void resolveResponseWarn();
+    void resolveResponseLocation();
+    void requestWeatherInfo();
 
 private:
     void initialControl();
@@ -48,6 +50,11 @@ private:
     QNetworkRequest *pNetRequest=nullptr;
     QNetworkReply *pNetReply=nullptr;
     QByteArray jsdata;
+
+    QNetworkRequest *pNetRequestLocation=nullptr;
+    QNetworkReply *pNetReplyLocation=nullptr;
+    QByteArray locationData;
+    std::string strIP;
 
     QNetworkRequest *pNetRequestWarn=nullptr;
     QNetworkReply *pNetReplyWarn=nullptr;

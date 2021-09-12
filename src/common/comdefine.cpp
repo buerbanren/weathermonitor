@@ -2,6 +2,9 @@
 
 QWidget* Common::rootWidget = nullptr;
 
+double Common::lon=0;
+double Common::lat=0;
+
 void Common::setRootWidget(QWidget * widget)
 {
 	rootWidget = widget;
@@ -70,4 +73,15 @@ string Common::convertIcoType2Path(string type)
     }
 
     return "";
+}
+
+void Common::setMsgWeatherUrl(double _lat, double _lon)
+{
+    lat=_lat;
+    lon=_lon;
+}
+
+string Common::getMsnWeatherUrl()
+{
+    return QString(REQUEST_MSN_URL).arg(lat).arg(lon).toStdString();
 }

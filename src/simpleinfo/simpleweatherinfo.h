@@ -28,6 +28,8 @@ public:
     ~SimpleWeatherInfo();
     void setWeatherInfo(std::string name, std::string value);
     void timingMove();
+    void setDistrict(string district);
+    string getDistrict();
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -53,6 +55,7 @@ private:
     int startX=0;
     QString strWarn;
     QTimer timer;
+    string district;
 
     std::map<std::string,QLabel * &> mapInfoLabel={
         std::pair<std::string,QLabel * &>("warn", labelWarning),

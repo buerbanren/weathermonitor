@@ -2,6 +2,8 @@
 #include "src/common/comdefine.h"
 
 #include <QMessageBox>
+#include <QDebug>
+#include <QCryptographicHash>
 
 WeatherMonitor::WeatherMonitor(QWidget *parent)
     : QWidget(parent)
@@ -188,6 +190,7 @@ void WeatherMonitor::resolveResponseWeather()
     }
     weekendForecast->setDaysInfo(weekdaydata);
 
+    jsdata.clear();
 }
 
 void WeatherMonitor::resolveResponseWarn()
@@ -211,7 +214,7 @@ void WeatherMonitor::resolveResponseWarn()
     // 遍历所有预警信息
     foreach (auto _it, valueArrWarn) {
         auto it = _it.toObject().find("headline")->toString();
-        int pos = it.indexOf("宝山");
+        int pos = it.indexOf(simpleinfo->getDistrict().data());
         if(-1 == pos)
             continue;
 
@@ -219,6 +222,132 @@ void WeatherMonitor::resolveResponseWarn()
         simpleinfo->setWeatherInfo("warn",it.toStdString());
         break;
     }
+    jsdataWarn.clear();
+}
+
+void WeatherMonitor::resolveResponseLocation()
+{
+    // 提取ip地址
+    QRegExp ipreg("(([0-9]){1,}\.([0-9]){1,}\.([0-9]){1,}\.([0-9]){1,}){1}");
+    qDebug()<<locationData;
+    if(-1 == ipreg.indexIn(locationData,0))
+    {
+        qDebug()<<"IP address lost";
+        return;
+    }
+    strIP = ipreg.cap(1).toStdString();
+    qDebug()<<"local host ip:"<<strIP.c_str();
+
+    // 拼接请求参数
+    // 密钥串：/ws/location/v1/ip?ip=""&key=""+sk&sig=""
+    std::string keysk;
+    keysk.append(TENCENT_LOCATIONPATH);
+    keysk.append("ip=");
+    keysk.append(strIP);
+    keysk.append("&key=");
+    keysk.append(TENCENT_URL_TOKEN);
+    keysk.append(TENCENT_URL_SK);
+
+    QByteArray data=QByteArray::fromStdString(keysk);
+    qDebug()<<keysk.data();
+	// 签名
+    string strSig = QCryptographicHash::hash(data,QCryptographicHash::Md5).toHex().toStdString();
+
+    keysk.append("&sig=");
+    keysk.append(strSig.data());
+
+    std::string requestUrl;
+    requestUrl.append(TENCENT_LOCATIONHOST);
+    requestUrl.append(TENCENT_LOCATIONPATH);
+    requestUrl.append("ip=");
+    requestUrl.append(strIP);
+    requestUrl.append("&key=");
+    requestUrl.append(TENCENT_URL_TOKEN);
+    requestUrl.append("&sig=");
+    requestUrl.append(strSig);
+
+    QSslConfiguration config;
+    config=pNetRequestLocation->sslConfiguration();
+    config.setProtocol(QSsl::SslProtocol::TlsV1SslV3);
+    config.setPeerVerifyMode(QSslSocket::VerifyNone);
+    pNetRequestLocation->setSslConfiguration(config);
+
+    qDebug()<<requestUrl.data();
+    pNetRequestLocation->setUrl(QUrl(requestUrl.data()));
+
+	QNetworkReply *pNetReplyTencentLocation = nullptr;
+	pNetReplyTencentLocation = pNetManager->get(*pNetRequestLocation);
+
+	locationData.clear();
+    connect(pNetReplyTencentLocation, &QNetworkReply::readyRead, [=]()
+	{
+		locationData.append(pNetReplyTencentLocation->readAll());
+	});
+    connect(pNetReplyTencentLocation, &QNetworkReply::finished, [=]()
+	{
+		qDebug() << locationData.data();
+        QJsonDocument locationJson=QJsonDocument::fromJson(locationData);
+        if(!locationJson.isObject())
+            return ;
+        QJsonObject jsobj=locationJson.object();
+        auto it=jsobj.find("status").value().toInt();
+        if(it!=0)
+        {
+            qDebug()<<"error:"<<jsobj.find("message").value().toString();
+            return ;
+        }
+        double lon=jsobj.find("result").value().toObject().value("location").toObject().value("lng").toDouble();
+        double lat=jsobj.find("result").value().toObject().value("location").toObject().value("lat").toDouble();
+        string province=jsobj.find("result").value().toObject().value("ad_info").toObject().value("province").toString().toStdString();
+        string city=jsobj.find("result").value().toObject().value("ad_info").toObject().value("city").toString().toStdString();
+        string district=jsobj.find("result").value().toObject().value("ad_info").toObject().value("district").toString().toStdString();
+
+        topinfo->setCityInfo(district);
+
+        Common::setMsgWeatherUrl(lat,lon);
+
+        simpleinfo->setDistrict(district);
+
+        requestWeatherInfo();
+	});
+
+}
+
+void WeatherMonitor::requestWeatherInfo()
+{
+    // 今日天气详情请求
+    pNetRequest=new QNetworkRequest;
+
+    QSslConfiguration config;
+    config=pNetRequest->sslConfiguration();
+    config.setProtocol(QSsl::SslProtocol::TlsV1SslV3);
+    config.setPeerVerifyMode(QSslSocket::VerifyNone);
+    pNetRequest->setSslConfiguration(config);
+
+    pNetRequest->setUrl(QUrl(QString(Common::getMsnWeatherUrl().data())));
+
+    pNetReply = pNetManager->get(*pNetRequest);
+    // 今日天气信息获取
+    connect(pNetReply,&QNetworkReply::readyRead,[&]()
+    {
+       jsdata.append(pNetReply->readAll());
+    });
+
+    // 响应完成解析数据
+    connect(pNetReply,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseWeather);
+
+
+    // 预警信息请求
+    pNetRequestWarn=new QNetworkRequest;
+    pNetRequestWarn->setUrl(QUrl(QString(QString(REQUEST_ALARM_URL))));
+
+    pNetReplyWarn=pNetManager->get(*pNetRequestWarn);
+    connect(pNetReplyWarn,&QNetworkReply::readyRead,[&]()
+    {
+        jsdataWarn.append(pNetReplyWarn->readAll());
+    });
+
+    connect(pNetReplyWarn,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseWarn);
 }
 
 void WeatherMonitor::initialControl()
@@ -261,37 +390,16 @@ void WeatherMonitor::initNetworkConfig()
 {
     pNetManager=new QNetworkAccessManager(this);
 
-    // 今日天气详情请求
-    pNetRequest=new QNetworkRequest;
+    // ip地址转行政区域
+    pNetRequestLocation=new QNetworkRequest;
+    pNetRequestLocation->setUrl(QUrl(QString(REQUEST_LOCALIPURL)));
 
-    QSslConfiguration config;
-    config=pNetRequest->sslConfiguration();
-    config.setProtocol(QSsl::SslProtocol::TlsV1SslV3);
-    config.setPeerVerifyMode(QSslSocket::VerifyNone);
-    pNetRequest->setSslConfiguration(config);
+    pNetReplyLocation = pNetManager->get(*pNetRequestLocation);
 
-    pNetRequest->setUrl(QUrl(QString(REQUEST_MSN_URL)));
-
-    pNetReply = pNetManager->get(*pNetRequest);
-    // 今日天气信息获取
-    connect(pNetReply,&QNetworkReply::readyRead,[&]()
+    connect(pNetReplyLocation,&QNetworkReply::readyRead,[&]()
     {
-       jsdata.append(pNetReply->readAll());
+        locationData.append(pNetReplyLocation->readAll());
     });
+    connect(pNetReplyLocation,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseLocation);
 
-    // 响应完成解析数据
-    connect(pNetReply,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseWeather);
-
-
-    // 预警信息请求
-    pNetRequestWarn=new QNetworkRequest;
-    pNetRequestWarn->setUrl(QUrl(QString(QString(REQUEST_ALARM_URL))));
-
-    pNetReplyWarn=pNetManager->get(*pNetRequestWarn);
-    connect(pNetReplyWarn,&QNetworkReply::readyRead,[&]()
-    {
-        jsdataWarn.append(pNetReplyWarn->readAll());
-    });
-
-    connect(pNetReplyWarn,&QNetworkReply::finished,this,&WeatherMonitor::resolveResponseWarn);
 }
