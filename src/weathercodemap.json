@@ -3,6 +3,10 @@
         "code": "100",
         "name": "Sunny"
     },
+    "晴朗": {
+        "code": "100",
+        "name": "Sunny"
+    },
     "多云": {
         "code": "101",
         "name": "Cloudy"
