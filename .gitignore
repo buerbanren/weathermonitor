@@ -34,12 +34,13 @@ temp/
 *.exe
 *.out
 *.app
-/build/*
+build/*
 debug/
 release/
 
 # Qt Project files
-*Makefile.*
+Makefile*
+Makefile.*
 *.Debug
 *.Release
 
