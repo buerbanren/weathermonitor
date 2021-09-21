@@ -1,4 +1,5 @@
 #include "comdefine.h"
+#include <QFile>
 
 QWidget* Common::rootWidget = nullptr;
 
@@ -26,25 +27,25 @@ int Common::tranHeight(int height)
 {
 	if (!rootWidget)
 		return 0;
-	return int((height / BASE_WIDGET_HEIGHT)*rootWidget->height());
+    return int((height / BASE_WIDGET_HEIGHT)*rootWidget->height());
+}
+
+QSize Common::tranSize(int width, int height)
+{
+    return {Common::tranWidth(width),Common::tranHeight(height)};
 }
 
 string Common::readFileContent(string filepath)
 {
     string content;
-    ifstream file;
-    file.open(filepath,fstream::in);
-    if(!(file.is_open()))
+    QFile cssfile(filepath.data());
+    cssfile.open(QFile::OpenModeFlag::ReadOnly);
+    if(!(cssfile.isOpen()))
     {
         return string();
     }
-    char buffer[1024]={"\0"};
-    while(file.getline(buffer,1024))
-    {
-        content.append(buffer);
-        memset(buffer,0,1024);
-    }
-    file.close();
+    content = cssfile.readAll().toStdString();
+
     return content;
 }
 
@@ -53,7 +54,7 @@ string Common::convertIcoType2Path(string type)
     string icoPath=":/weathericons/resource/weathericons/";
     // 天气icon配置文件
     string content;
-    content = Common::readFileContent("../../src/weathercodemap.json");
+    content = Common::readFileContent("../../monitor/src/weathercodemap.json");
     QJsonParseError jserror;
     QJsonDocument jsdoc_icons=QJsonDocument::fromJson(content.data(),&jserror);
     if(jserror.error!=QJsonParseError::NoError)

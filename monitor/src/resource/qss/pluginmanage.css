@@ -1,0 +1,39 @@
+*{
+    background:transparent;
+}
+#FramePluginManage{
+    background-color:#0A2A45;
+    border:1px solid gray;
+    border-radius:16px;
+}
+#frameTop{
+    border:0px;
+    background-color:rgba(0,0,0,0);
+    border-radius:0px;
+    border-bottom:1px solid gray;
+}
+#labPluginTitle{
+    font:16px 'Microsoft YaHei';
+    color:white;
+}
+#btClose{
+    border:0px;
+    image:url(:/qss/resource/qss/close.png);
+    background:transparent;
+}
+#btClose::hover{
+    border:0px;
+    image:url(:/qss/resource/qss/closehover.png);
+    background:transparent;
+}
+QPushButton{
+    image:url(:/qss/resource/qss/add.png);
+    /*background-color: rgba(235,235,235,96);*/
+    border:0px solid rgba(235,235,235,96);
+    border-radius:6px;
+}
+QPushButton::hover{
+    /*background-color:rgba(235,235,235,96);*/
+    border:2px solid rgba(235,235,235,96);
+    border-radius:6px;
+}

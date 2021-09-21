@@ -1,4 +1,4 @@
-#include "weathermonitor.h"
+﻿#include "weathermonitor.h"
 #include "src/common/comdefine.h"
 
 #include <QMessageBox>
@@ -61,7 +61,7 @@ void WeatherMonitor::resolveResponseWeather()
 
         // 天气icon配置文件
         string content;
-        content = Common::readFileContent("../../src/weathercodemap.json");
+        content = Common::readFileContent("../../monitor/src/weathercodemap.json");
         QJsonParseError jserror;
         QJsonDocument jsdoc_icons=QJsonDocument::fromJson(content.data(),&jserror);
         if(jserror.error!=QJsonParseError::NoError)

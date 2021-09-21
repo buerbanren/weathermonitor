@@ -1,4 +1,5 @@
 #include "weathermonitor.h"
+#include "pluginmanage/pluginmanage.h"
 
 #include <QApplication>
 
@@ -13,7 +14,11 @@ int main(int argc, char *argv[])
 
     timer.connect(&timer,&QTimer::timeout,&w,&WeatherMonitor::startNetworkConfig);
 
-    timer.start();
+    //timer.start();
+
+    PluginManage pluginManage(&w);
+    pluginManage.move((w.width()-pluginManage.width())/2,(w.height()-pluginManage.height())/2);
+    pluginManage.show();
 
     return a.exec();
 }

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/test">
+        <file>testpluginicon.png</file>
+    </qresource>
+</RCC>

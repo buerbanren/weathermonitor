@@ -17,7 +17,7 @@
 *.so
 *.dylib
 *.dll
-/temp/
+temp/
 /.vs/
 
 # Fortran module files
@@ -35,8 +35,15 @@
 *.out
 *.app
 /build/*
+debug/
+release/
+
+# Qt Project files
+*.Debug
+*.Release
 
 # VC Project files
+*.vs
 *.sln
 *.filters
 *.usr
