@@ -39,6 +39,7 @@ debug/
 release/
 
 # Qt Project files
+*Makefile.*
 *.Debug
 *.Release
 
