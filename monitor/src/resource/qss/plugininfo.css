@@ -1,0 +1,7 @@
+﻿#bt_returnPluginALL{
+    image:url(:/qss/resource/qss/return.png);
+}
+#bt_returnPluginALL::hover{
+    border:0px;
+    image:url(:/qss/resource/qss/returnhover.png);
+}

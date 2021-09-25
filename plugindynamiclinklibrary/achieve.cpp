@@ -24,7 +24,7 @@ QWidget *AchieveClass::getPluginWidget()
 
 QImage AchieveClass::getPluginIcon()
 {
-    return QImage(":/test/testpluginicon.png");
+    return QImage(":/test/chinaweather.png");
 }
 
 AchieveClass::~AchieveClass()

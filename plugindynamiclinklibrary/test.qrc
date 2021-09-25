@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/test">
         <file>testpluginicon.png</file>
+        <file>chinaweather.png</file>
     </qresource>
 </RCC>

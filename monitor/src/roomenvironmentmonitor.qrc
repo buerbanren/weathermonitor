@@ -9,6 +9,11 @@
         <file>resource/qss/close.png</file>
         <file>resource/qss/closehover.png</file>
         <file>resource/qss/pluginmanagebt.css</file>
+        <file>resource/qss/install.png</file>
+        <file>resource/qss/uninstall.png</file>
+        <file>resource/qss/return.png</file>
+        <file>resource/qss/returnhover.png</file>
+        <file>resource/qss/plugininfo.css</file>
     </qresource>
     <qresource prefix="/weathericons">
         <file>resource/weathericons/100.png</file>

@@ -13,6 +13,7 @@ SOURCES += \
     src/dialplate/dialplate.cpp \
     src/iteminfobase/iteminfobase.cpp \
     src/main.cpp \
+    src/pluginmanage/plugininfo.cpp \
     src/pluginmanage/pluginmanage.cpp \
     src/precipitationforecast/precipitationforecast.cpp \
     src/weekendforecast/weekendforecast.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     src/common/comdefine.h \
     src/dialplate/dialplate.h \
     src/iteminfobase/iteminfobase.h \
+    src/pluginmanage/plugininfo.h \
     src/pluginmanage/pluginmanage.h \
     src/precipitationforecast/precipitationforecast.h \
     src/weekendforecast/weekendforecast.h \

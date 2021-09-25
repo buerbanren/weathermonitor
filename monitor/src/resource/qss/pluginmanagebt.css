@@ -4,7 +4,7 @@ QPushButton{
     border-radius:6px;
 }
 QPushButton::hover{
-    background:transparent;
+    background:rgba(235,235,235,96);
     border:2px solid rgba(235,235,235,96);
     border-radius:6px;
 }
