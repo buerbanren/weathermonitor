@@ -15,6 +15,7 @@ WeatherMonitor::WeatherMonitor(QWidget *parent)
 	Common::setRootWidget(this);
 
     startNetworkConfig();
+
 }
 
 WeatherMonitor::~WeatherMonitor()

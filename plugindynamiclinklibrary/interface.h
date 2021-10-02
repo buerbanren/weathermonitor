@@ -8,6 +8,7 @@
 class TestInterface
 {
 public:
+    virtual ~TestInterface(){}
     // 获取插件界面
     virtual QWidget *getPluginWidget()=0;
 

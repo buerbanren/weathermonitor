@@ -68,6 +68,5 @@ private:
     QJsonObject jsobj;
 
 
-
 };
 #endif // WEATHERMONITOR_H

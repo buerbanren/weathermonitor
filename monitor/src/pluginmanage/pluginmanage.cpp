@@ -1,14 +1,18 @@
 #include "pluginmanage.h"
 #include "../common/comdefine.h"
-#include "../../../plugindynamiclinklibrary/interface.h"
 #include <QEvent>
 #include <QFileDialog>
 #include <QFileInfo>
-typedef TestInterface* (*TestFunction)(QWidget*);
+
+#ifdef WIN32
+	#include <windows.h>
+#endif
+
+typedef TestInterface* (*TestFunction)();
 
 PluginManage::PluginManage(QWidget *parent) : QFrame(parent)
 {
-    this->setObjectName("FramePluginManage");
+	this->setObjectName("FramePluginManage");
 
     this->setStyleSheet(Common::readFileContent(":/qss/resource/qss/pluginmanage.css").data());
     this->resize(Common::tranSize(800,580));
@@ -16,6 +20,32 @@ PluginManage::PluginManage(QWidget *parent) : QFrame(parent)
     initUILayout(this);
 
     loadPluginDLL();
+}
+
+PluginManage::~PluginManage()
+{
+	try {
+		for (auto itinterface : vet_interface)
+		{
+			if (!itinterface)
+				continue;
+			delete itinterface;
+			itinterface = nullptr;
+		}
+
+		for (auto lib : vet_loadlibrary)
+		{
+			if (!lib)
+				continue;
+			if (lib->isLoaded())
+                lib->unload();
+			lib->deleteLater();
+		}
+	}
+	catch (...)
+	{
+		qDebug() << u8"析构错误";
+	}
 }
 
 void PluginManage::initUILayout(QWidget *parent)
@@ -124,22 +154,46 @@ void PluginManage::loadPluginDLL()
 
 bool PluginManage::loadPluginDLL(std::string name, bool isnew)
 {
-    // DLL加载测试
-    TestFunction getInstall=(TestFunction)QLibrary::resolve(name.data(),"getInstall");
+
+#ifndef WIN32
+    HMODULE hmodule = LoadLibraryA("test.dll");
+
+    if(!hmodule)
+        QMessageBox::warning(NULL,"错误","加载失败");
+
+	TestFunction getInstall=(TestFunction)GetProcAddress(hmodule,"getInstall");
+
+     FreeLibrary(hmodule);
+#else
+    // DLL加载测试采用Qt提供的Qlibrary方式进行加载
+    QLibrary *library=new QLibrary(name.data(),this);
+    if(library->isLoaded())
+    {
+        QMessageBox::warning(NULL,u8"提示",u8"禁止重复加载");
+        return false;
+    }
+    TestFunction getInstall=(TestFunction)library->resolve("getInstall");
+#endif
+
     if(!getInstall)
-     {
+    {
         QMessageBox::warning(nullptr,"提示","接口获取失败");
         return false;
     }
 
-    TestInterface *testInterface=getInstall(testWidget);
+    TestInterface *testInterface=getInstall();
 
-    if(!testInterface)
+	if (!testInterface)
         return false;
+
+    //存储动态库
+    vet_loadlibrary.push_back(library);
+    vet_interface.push_back(testInterface);
 
     testWidget=testInterface->getPluginWidget();
     testWidget->setStyleSheet("background-color:red;");
     testWidget->show();
+	testWidget->resize(400, 200);
 
     vec_pluginBt.push_back(new QPushButton(this));
 
@@ -174,16 +228,18 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
     p_gridLayoutPlugin->addWidget(p_btPluginManual,vec_pluginBt.size()/4,vec_pluginBt.size()%4);
 
     // 水平填充移动
-    if(vec_pluginBt.size()%4<3)
-        p_gridLayoutPlugin->addItem(p_hSpacer,((vec_pluginBt.size()+1)/4),3-(vec_pluginBt.size()%4),1,4-((vec_pluginBt.size()+1)/4));
-    else
-        p_gridLayoutPlugin->removeItem(p_hSpacer);
+	p_gridLayoutPlugin->removeItem(p_hSpacer);
+	if (vec_pluginBt.size() % 4 < 3)
+		p_gridLayoutPlugin->addItem(p_hSpacer, ((vec_pluginBt.size() + 1) / 4), 3 - (vec_pluginBt.size() % 4), 1, 4 - ((vec_pluginBt.size() + 1) / 4));
+	//else
+	//	;
 
     // 垂直填充移动
-    if(vec_pluginBt.size()/4 < 2)
-        p_gridLayoutPlugin->addItem(p_vSpacer,vec_pluginBt.size()/4+1,vec_pluginBt.size()%4,3-(vec_pluginBt.size()/4+1),1);
-    else
-        p_gridLayoutPlugin->removeItem(p_vSpacer);
+	p_gridLayoutPlugin->removeItem(p_vSpacer);
+	if (vec_pluginBt.size() / 4 < 2)
+		p_gridLayoutPlugin->addItem(p_vSpacer, vec_pluginBt.size() / 4 + 1, vec_pluginBt.size() % 4, 3 - (vec_pluginBt.size() / 4 + 1), 1);
+	//else
+	//	;
 
     return true;
 }

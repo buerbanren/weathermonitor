@@ -4,7 +4,7 @@
 #include "interface.h"
 
 // 动态库导出接口
-extern "C" TestInterface* TEST_EXPORT getInstall();
+extern "C" TEST_EXPORT TestInterface* getInstall();
 
 class AchieveClass: public TestInterface
 {

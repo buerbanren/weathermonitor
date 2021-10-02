@@ -13,13 +13,13 @@ TestInterface* getInstall()
 
 AchieveClass::AchieveClass()
 {
-    widget=new QWidget(NULL);
+    widget=new QWidget(nullptr);
     widget->resize(100,50);
 }
 
 QWidget *AchieveClass::getPluginWidget()
 {
-    return widget;
+	return widget;
 }
 
 QImage AchieveClass::getPluginIcon()
@@ -30,6 +30,9 @@ QImage AchieveClass::getPluginIcon()
 AchieveClass::~AchieveClass()
 {
     if(widget)
-        delete widget;
-    QMessageBox::information(NULL,"提示","已被释放");
+    {
+		delete widget;
+        widget=nullptr;
+        //QMessageBox::information(NULL,"提示","已被释放");
+    }
 }

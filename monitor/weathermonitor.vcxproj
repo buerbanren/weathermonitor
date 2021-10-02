@@ -1,33 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{61EB0451-6016-3239-82AE-3E4FDC4F1B7E}</ProjectGuid>
+    <ProjectGuid>{8CFE368B-46B0-3BB0-A864-43D9E5BA56C1}</ProjectGuid>
     <RootNamespace>weathermonitor</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <PlatformToolSet>v140</PlatformToolSet>
-    <OutputDirectory>build\release\</OutputDirectory>
+    <OutputDirectory>..\build\release\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>temp\release\obj\</IntermediateDirectory>
     <PrimaryOutput>weathermonitor</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolSet>v140</PlatformToolSet>
-    <OutputDirectory>build\debug\</OutputDirectory>
+    <OutputDirectory>..\build\release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>temp\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>weathermonitor</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolSet>v140</PlatformToolSet>
+    <OutputDirectory>..\build\debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>temp\debug\obj\</IntermediateDirectory>
+    <PrimaryOutput>weathermonitor</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolSet>v140</PlatformToolSet>
+    <OutputDirectory>..\build\debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
@@ -36,25 +62,36 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">build\release\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\obj\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">weathermonitor</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">build\debug\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\obj\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">weathermonitor</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\build\release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">weathermonitor</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">weathermonitor</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\build\debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">weathermonitor</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">weathermonitor</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>.;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWebChannel;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\release\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
@@ -65,9 +102,10 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>temp\release\obj\</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
-      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -77,7 +115,7 @@
     <Link>
       <AdditionalDependencies>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\qtmain.lib;shell32.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgets.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Gui.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Network.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5WebChannel.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;C:\utils\postgresql\pgsql\lib;C:\utils\my_sql\my_sql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -94,10 +132,54 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWebChannel;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\release\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>temp\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>temp\release\obj\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\qtmain.lib;shell32.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgets.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Gui.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Network.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5WebChannel.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;C:\utils\postgresql\pgsql\lib;C:\utils\my_sql\my_sql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\weathermonitor.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>0.0</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>.;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWebChannel;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\debug\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
@@ -108,7 +190,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>temp\debug\obj\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -119,7 +201,7 @@
     <Link>
       <AdditionalDependencies>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\qtmaind.lib;shell32.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgetsd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Guid.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Networkd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5WebChanneld.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;C:\utils\postgresql\pgsql\lib;C:\utils\my_sql\my_sql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -135,7 +217,48 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWebChannel;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\debug\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>temp\debug\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>temp\debug\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\qtmaind.lib;shell32.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgetsd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Guid.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Networkd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5WebChanneld.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;C:\utils\postgresql\pgsql\lib;C:\utils\my_sql\my_sql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\weathermonitor.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>0.0</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WEBCHANNEL_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -144,6 +267,8 @@
     <ClCompile Include="src\dialplate\dialplate.cpp" />
     <ClCompile Include="src\iteminfobase\iteminfobase.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\pluginmanage\plugininfo.cpp" />
+    <ClCompile Include="src\pluginmanage\pluginmanage.cpp" />
     <ClCompile Include="src\precipitationforecast\precipitationforecast.cpp" />
     <ClCompile Include="src\simpleinfo\simpleweatherinfo.cpp" />
     <ClCompile Include="src\topinfo\topinfo.cpp" />
@@ -154,96 +279,200 @@
   <ItemGroup>
     <ClInclude Include="src\common\comdefine.h" />
     <CustomBuild Include="src\dialimage\dialimage.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\dialimage\dialimage.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\dialimage\dialimage.h -o temp\release\moc\moc_dialimage.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/dialimage/dialimage.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_dialimage.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\dialimage\dialimage.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\dialimage\dialimage.h -o temp\debug\moc\moc_dialimage.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/dialimage/dialimage.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_dialimage.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\dialimage\dialimage.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\dialimage\dialimage.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\dialimage\dialimage.h -o temp\release\moc\moc_dialimage.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\dialimage\dialimage.h -o temp\release\moc\moc_dialimage.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/dialimage/dialimage.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/dialimage/dialimage.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_dialimage.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_dialimage.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\dialimage\dialimage.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\dialimage\dialimage.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\dialimage\dialimage.h -o temp\debug\moc\moc_dialimage.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\dialimage\dialimage.h -o temp\debug\moc\moc_dialimage.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/dialimage/dialimage.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/dialimage/dialimage.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_dialimage.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_dialimage.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <ClInclude Include="src\dialplate\dialplate.h" />
     <CustomBuild Include="src\iteminfobase\iteminfobase.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\iteminfobase\iteminfobase.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\iteminfobase\iteminfobase.h -o temp\release\moc\moc_iteminfobase.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/iteminfobase/iteminfobase.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\iteminfobase\iteminfobase.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\iteminfobase\iteminfobase.h -o temp\debug\moc\moc_iteminfobase.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/iteminfobase/iteminfobase.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\iteminfobase\iteminfobase.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\iteminfobase\iteminfobase.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\iteminfobase\iteminfobase.h -o temp\release\moc\moc_iteminfobase.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\iteminfobase\iteminfobase.h -o temp\release\moc\moc_iteminfobase.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/iteminfobase/iteminfobase.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/iteminfobase/iteminfobase.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\iteminfobase\iteminfobase.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\iteminfobase\iteminfobase.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\iteminfobase\iteminfobase.h -o temp\debug\moc\moc_iteminfobase.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\iteminfobase\iteminfobase.h -o temp\debug\moc\moc_iteminfobase.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/iteminfobase/iteminfobase.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/iteminfobase/iteminfobase.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_iteminfobase.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\pluginmanage\plugininfo.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\pluginmanage\plugininfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\pluginmanage\plugininfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\plugininfo.h -o temp\release\moc\moc_plugininfo.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\plugininfo.h -o temp\release\moc\moc_plugininfo.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/pluginmanage/plugininfo.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/pluginmanage/plugininfo.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_plugininfo.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_plugininfo.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\pluginmanage\plugininfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\pluginmanage\plugininfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\plugininfo.h -o temp\debug\moc\moc_plugininfo.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\plugininfo.h -o temp\debug\moc\moc_plugininfo.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/pluginmanage/plugininfo.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/pluginmanage/plugininfo.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_plugininfo.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_plugininfo.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\pluginmanage\pluginmanage.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\pluginmanage\pluginmanage.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\pluginmanage\pluginmanage.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\pluginmanage.h -o temp\release\moc\moc_pluginmanage.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\pluginmanage.h -o temp\release\moc\moc_pluginmanage.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/pluginmanage/pluginmanage.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/pluginmanage/pluginmanage.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_pluginmanage.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_pluginmanage.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\pluginmanage\pluginmanage.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\pluginmanage\pluginmanage.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\pluginmanage.h -o temp\debug\moc\moc_pluginmanage.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\pluginmanage\pluginmanage.h -o temp\debug\moc\moc_pluginmanage.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/pluginmanage/pluginmanage.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/pluginmanage/pluginmanage.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_pluginmanage.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_pluginmanage.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <ClInclude Include="src\precipitationforecast\precipitationforecast.h" />
     <ClInclude Include="src\simpleinfo\simpleweatherinfo.h" />
     <CustomBuild Include="src\topinfo\topinfo.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\topinfo\topinfo.h -o temp\release\moc\moc_topinfo.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/topinfo/topinfo.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_topinfo.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\topinfo\topinfo.h -o temp\debug\moc\moc_topinfo.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/topinfo/topinfo.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_topinfo.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\topinfo\topinfo.h -o temp\release\moc\moc_topinfo.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\topinfo\topinfo.h -o temp\release\moc\moc_topinfo.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/topinfo/topinfo.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/topinfo/topinfo.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_topinfo.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_topinfo.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\topinfo\topinfo.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\topinfo\topinfo.h -o temp\debug\moc\moc_topinfo.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\topinfo\topinfo.h -o temp\debug\moc\moc_topinfo.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/topinfo/topinfo.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/topinfo/topinfo.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_topinfo.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_topinfo.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="src\weatherinfotoday\weatherinfotoday.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\weatherinfotoday\weatherinfotoday.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weatherinfotoday\weatherinfotoday.h -o temp\release\moc\moc_weatherinfotoday.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/weatherinfotoday/weatherinfotoday.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\weatherinfotoday\weatherinfotoday.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weatherinfotoday\weatherinfotoday.h -o temp\debug\moc\moc_weatherinfotoday.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/weatherinfotoday/weatherinfotoday.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\weatherinfotoday\weatherinfotoday.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\weatherinfotoday\weatherinfotoday.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weatherinfotoday\weatherinfotoday.h -o temp\release\moc\moc_weatherinfotoday.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weatherinfotoday\weatherinfotoday.h -o temp\release\moc\moc_weatherinfotoday.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/weatherinfotoday/weatherinfotoday.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/weatherinfotoday/weatherinfotoday.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\weatherinfotoday\weatherinfotoday.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\weatherinfotoday\weatherinfotoday.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weatherinfotoday\weatherinfotoday.h -o temp\debug\moc\moc_weatherinfotoday.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weatherinfotoday\weatherinfotoday.h -o temp\debug\moc\moc_weatherinfotoday.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/weatherinfotoday/weatherinfotoday.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/weatherinfotoday/weatherinfotoday.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_weatherinfotoday.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="src\weathermonitor.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weathermonitor.h -o temp\release\moc\moc_weathermonitor.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/weathermonitor.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weathermonitor.h -o temp\debug\moc\moc_weathermonitor.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/weathermonitor.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weathermonitor.h -o temp\release\moc\moc_weathermonitor.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weathermonitor.h -o temp\release\moc\moc_weathermonitor.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC src/weathermonitor.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/weathermonitor.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\weathermonitor.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weathermonitor.h -o temp\debug\moc\moc_weathermonitor.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WEBCHANNEL_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/monitor -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWebChannel -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\weathermonitor.h -o temp\debug\moc\moc_weathermonitor.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC src/weathermonitor.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/weathermonitor.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_weathermonitor.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <ClInclude Include="src\weekendforecast\weekendforecast.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="temp\debug\moc\moc_dialimage.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_dialimage.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\moc\moc_iteminfobase.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_iteminfobase.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="temp\debug\moc\moc_plugininfo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_plugininfo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="temp\debug\moc\moc_pluginmanage.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="temp\release\moc\moc_pluginmanage.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\moc\moc_topinfo.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_topinfo.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\moc\moc_weatherinfotoday.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_weatherinfotoday.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\moc\moc_weathermonitor.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_weathermonitor.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\rc\qrc_roomenvironmentmonitor.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\qrc_roomenvironmentmonitor.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -309,25 +538,43 @@
     <None Include="src\resource\weathericons\901.png" />
     <None Include="src\resource\weathericons\999.png" />
     <None Include="src\resource\weathericons\LICENSE" />
+    <None Include="src\resource\qss\add.png" />
     <None Include="src\resource\qss\airquality.png" />
+    <None Include="src\resource\qss\close.png" />
+    <None Include="src\resource\qss\closehover.png" />
     <None Include="src\resource\qss\dialbackground.png" />
+    <None Include="src\resource\qss\install.png" />
     <None Include="src\precipitationforecast\map.html" />
+    <None Include="src\resource\qss\plugininfo.css" />
+    <None Include="src\resource\qss\pluginmanage.css" />
+    <None Include="src\resource\qss\pluginmanagebt.css" />
+    <None Include="src\resource\qss\return.png" />
+    <None Include="src\resource\qss\returnhover.png" />
     <CustomBuild Include="src\roomenvironmentmonitor.qrc">
       <FileType>Document</FileType>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\roomenvironmentmonitor.qrc;src\resource\weathericons\312.png;src\resource\weathericons\405.png;src\resource\weathericons\304.png;src\resource\weathericons\102.png;src\resource\weathericons\501.png;src\resource\weathericons\900.png;src\resource\weathericons\150.png;src\resource\weathericons\311.png;src\resource\weathericons\404.png;src\resource\weathericons\303.png;src\resource\weathericons\101.png;src\resource\weathericons\351.png;src\resource\weathericons\500.png;src\resource\weathericons\310.png;src\resource\weathericons\509.png;src\resource\weathericons\403.png;src\resource\weathericons\302.png;src\resource\weathericons\100.png;src\resource\weathericons\350.png;src\resource\weathericons\410.png;src\resource\weathericons\508.png;src\resource\weathericons\402.png;src\resource\weathericons\301.png;src\resource\weathericons\399.png;src\resource\weathericons\318.png;src\resource\weathericons\515.png;src\resource\weathericons\507.png;src\resource\weathericons\401.png;src\resource\weathericons\300.png;src\resource\weathericons\499.png;src\resource\weathericons\317.png;src\resource\weathericons\514.png;src\resource\weathericons\309.png;src\resource\weathericons\400.png;src\resource\weathericons\LICENSE;src\resource\weathericons\316.png;src\resource\weathericons\513.png;src\resource\weathericons\308.png;src\resource\weathericons\409.png;src\resource\weathericons\457.png;src\resource\weathericons\154.png;src\resource\weathericons\315.png;src\resource\weathericons\512.png;src\resource\weathericons\307.png;src\resource\weathericons\408.png;src\resource\weathericons\456.png;src\resource\weathericons\504.png;src\resource\weathericons\153.png;src\resource\weathericons\314.png;src\resource\weathericons\511.png;src\resource\weathericons\306.png;src\resource\weathericons\407.png;src\resource\weathericons\104.png;src\resource\weathericons\503.png;src\resource\weathericons\313.png;src\resource\weathericons\510.png;src\resource\weathericons\406.png;src\resource\weathericons\305.png;src\resource\weathericons\103.png;src\resource\weathericons\502.png;src\resource\weathericons\901.png;src\resource\weathericons\999.png;src\precipitationforecast\map.html;src\resource\qss\topinfo.css;src\resource\qss\dialbackground.png;src\resource\qss\airquality.png;src\resource\qss\simpleweatherinfo.css;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name roomenvironmentmonitor src\roomenvironmentmonitor.qrc -o temp\release\qrc_roomenvironmentmonitor.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">RCC src/roomenvironmentmonitor.qrc</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\qrc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\roomenvironmentmonitor.qrc;src\resource\weathericons\312.png;src\resource\weathericons\405.png;src\resource\weathericons\304.png;src\resource\weathericons\102.png;src\resource\weathericons\501.png;src\resource\weathericons\900.png;src\resource\weathericons\150.png;src\resource\weathericons\311.png;src\resource\weathericons\404.png;src\resource\weathericons\303.png;src\resource\weathericons\101.png;src\resource\weathericons\351.png;src\resource\weathericons\500.png;src\resource\weathericons\310.png;src\resource\weathericons\509.png;src\resource\weathericons\403.png;src\resource\weathericons\302.png;src\resource\weathericons\100.png;src\resource\weathericons\350.png;src\resource\weathericons\410.png;src\resource\weathericons\508.png;src\resource\weathericons\402.png;src\resource\weathericons\301.png;src\resource\weathericons\399.png;src\resource\weathericons\318.png;src\resource\weathericons\515.png;src\resource\weathericons\507.png;src\resource\weathericons\401.png;src\resource\weathericons\300.png;src\resource\weathericons\499.png;src\resource\weathericons\317.png;src\resource\weathericons\514.png;src\resource\weathericons\309.png;src\resource\weathericons\400.png;src\resource\weathericons\LICENSE;src\resource\weathericons\316.png;src\resource\weathericons\513.png;src\resource\weathericons\308.png;src\resource\weathericons\409.png;src\resource\weathericons\457.png;src\resource\weathericons\154.png;src\resource\weathericons\315.png;src\resource\weathericons\512.png;src\resource\weathericons\307.png;src\resource\weathericons\408.png;src\resource\weathericons\456.png;src\resource\weathericons\504.png;src\resource\weathericons\153.png;src\resource\weathericons\314.png;src\resource\weathericons\511.png;src\resource\weathericons\306.png;src\resource\weathericons\407.png;src\resource\weathericons\104.png;src\resource\weathericons\503.png;src\resource\weathericons\313.png;src\resource\weathericons\510.png;src\resource\weathericons\406.png;src\resource\weathericons\305.png;src\resource\weathericons\103.png;src\resource\weathericons\502.png;src\resource\weathericons\901.png;src\resource\weathericons\999.png;src\precipitationforecast\map.html;src\resource\qss\topinfo.css;src\resource\qss\dialbackground.png;src\resource\qss\airquality.png;src\resource\qss\simpleweatherinfo.css;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name roomenvironmentmonitor src\roomenvironmentmonitor.qrc -o temp\debug\rc\qrc_roomenvironmentmonitor.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">RCC src/roomenvironmentmonitor.qrc</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\rc\qrc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\roomenvironmentmonitor.qrc;src\resource\weathericons\312.png;src\resource\weathericons\405.png;src\resource\weathericons\304.png;src\resource\weathericons\102.png;src\resource\weathericons\501.png;src\resource\weathericons\900.png;src\resource\weathericons\150.png;src\resource\weathericons\311.png;src\resource\weathericons\404.png;src\resource\weathericons\303.png;src\resource\weathericons\101.png;src\resource\weathericons\351.png;src\resource\weathericons\500.png;src\resource\weathericons\310.png;src\resource\weathericons\509.png;src\resource\weathericons\403.png;src\resource\weathericons\302.png;src\resource\weathericons\100.png;src\resource\weathericons\350.png;src\resource\weathericons\410.png;src\resource\weathericons\508.png;src\resource\weathericons\402.png;src\resource\weathericons\301.png;src\resource\weathericons\399.png;src\resource\weathericons\318.png;src\resource\weathericons\515.png;src\resource\weathericons\507.png;src\resource\weathericons\401.png;src\resource\weathericons\300.png;src\resource\weathericons\499.png;src\resource\weathericons\317.png;src\resource\weathericons\514.png;src\resource\weathericons\309.png;src\resource\weathericons\400.png;src\resource\weathericons\LICENSE;src\resource\weathericons\316.png;src\resource\weathericons\513.png;src\resource\weathericons\308.png;src\resource\weathericons\409.png;src\resource\weathericons\457.png;src\resource\weathericons\154.png;src\resource\weathericons\315.png;src\resource\weathericons\512.png;src\resource\weathericons\307.png;src\resource\weathericons\408.png;src\resource\weathericons\456.png;src\resource\weathericons\504.png;src\resource\weathericons\153.png;src\resource\weathericons\314.png;src\resource\weathericons\511.png;src\resource\weathericons\306.png;src\resource\weathericons\407.png;src\resource\weathericons\104.png;src\resource\weathericons\503.png;src\resource\weathericons\313.png;src\resource\weathericons\510.png;src\resource\weathericons\406.png;src\resource\weathericons\305.png;src\resource\weathericons\103.png;src\resource\weathericons\502.png;src\resource\weathericons\901.png;src\resource\weathericons\999.png;src\precipitationforecast\map.html;src\resource\qss\topinfo.css;src\resource\qss\close.png;src\resource\qss\pluginmanagebt.css;src\resource\qss\dialbackground.png;src\resource\qss\install.png;src\resource\qss\plugininfo.css;src\resource\qss\airquality.png;src\resource\qss\uninstall.png;src\resource\qss\add.png;src\resource\qss\pluginmanage.css;src\resource\qss\closehover.png;src\resource\qss\return.png;src\resource\qss\simpleweatherinfo.css;src\resource\qss\returnhover.png;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\roomenvironmentmonitor.qrc;src\resource\weathericons\312.png;src\resource\weathericons\405.png;src\resource\weathericons\304.png;src\resource\weathericons\102.png;src\resource\weathericons\501.png;src\resource\weathericons\900.png;src\resource\weathericons\150.png;src\resource\weathericons\311.png;src\resource\weathericons\404.png;src\resource\weathericons\303.png;src\resource\weathericons\101.png;src\resource\weathericons\351.png;src\resource\weathericons\500.png;src\resource\weathericons\310.png;src\resource\weathericons\509.png;src\resource\weathericons\403.png;src\resource\weathericons\302.png;src\resource\weathericons\100.png;src\resource\weathericons\350.png;src\resource\weathericons\410.png;src\resource\weathericons\508.png;src\resource\weathericons\402.png;src\resource\weathericons\301.png;src\resource\weathericons\399.png;src\resource\weathericons\318.png;src\resource\weathericons\515.png;src\resource\weathericons\507.png;src\resource\weathericons\401.png;src\resource\weathericons\300.png;src\resource\weathericons\499.png;src\resource\weathericons\317.png;src\resource\weathericons\514.png;src\resource\weathericons\309.png;src\resource\weathericons\400.png;src\resource\weathericons\LICENSE;src\resource\weathericons\316.png;src\resource\weathericons\513.png;src\resource\weathericons\308.png;src\resource\weathericons\409.png;src\resource\weathericons\457.png;src\resource\weathericons\154.png;src\resource\weathericons\315.png;src\resource\weathericons\512.png;src\resource\weathericons\307.png;src\resource\weathericons\408.png;src\resource\weathericons\456.png;src\resource\weathericons\504.png;src\resource\weathericons\153.png;src\resource\weathericons\314.png;src\resource\weathericons\511.png;src\resource\weathericons\306.png;src\resource\weathericons\407.png;src\resource\weathericons\104.png;src\resource\weathericons\503.png;src\resource\weathericons\313.png;src\resource\weathericons\510.png;src\resource\weathericons\406.png;src\resource\weathericons\305.png;src\resource\weathericons\103.png;src\resource\weathericons\502.png;src\resource\weathericons\901.png;src\resource\weathericons\999.png;src\precipitationforecast\map.html;src\resource\qss\topinfo.css;src\resource\qss\close.png;src\resource\qss\pluginmanagebt.css;src\resource\qss\dialbackground.png;src\resource\qss\install.png;src\resource\qss\plugininfo.css;src\resource\qss\airquality.png;src\resource\qss\uninstall.png;src\resource\qss\add.png;src\resource\qss\pluginmanage.css;src\resource\qss\closehover.png;src\resource\qss\return.png;src\resource\qss\simpleweatherinfo.css;src\resource\qss\returnhover.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name roomenvironmentmonitor src\roomenvironmentmonitor.qrc -o temp\release\qrc_roomenvironmentmonitor.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name roomenvironmentmonitor src\roomenvironmentmonitor.qrc -o temp\release\qrc_roomenvironmentmonitor.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">RCC src/roomenvironmentmonitor.qrc</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">RCC src/roomenvironmentmonitor.qrc</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">temp\release\qrc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\qrc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\roomenvironmentmonitor.qrc;src\resource\weathericons\312.png;src\resource\weathericons\405.png;src\resource\weathericons\304.png;src\resource\weathericons\102.png;src\resource\weathericons\501.png;src\resource\weathericons\900.png;src\resource\weathericons\150.png;src\resource\weathericons\311.png;src\resource\weathericons\404.png;src\resource\weathericons\303.png;src\resource\weathericons\101.png;src\resource\weathericons\351.png;src\resource\weathericons\500.png;src\resource\weathericons\310.png;src\resource\weathericons\509.png;src\resource\weathericons\403.png;src\resource\weathericons\302.png;src\resource\weathericons\100.png;src\resource\weathericons\350.png;src\resource\weathericons\410.png;src\resource\weathericons\508.png;src\resource\weathericons\402.png;src\resource\weathericons\301.png;src\resource\weathericons\399.png;src\resource\weathericons\318.png;src\resource\weathericons\515.png;src\resource\weathericons\507.png;src\resource\weathericons\401.png;src\resource\weathericons\300.png;src\resource\weathericons\499.png;src\resource\weathericons\317.png;src\resource\weathericons\514.png;src\resource\weathericons\309.png;src\resource\weathericons\400.png;src\resource\weathericons\LICENSE;src\resource\weathericons\316.png;src\resource\weathericons\513.png;src\resource\weathericons\308.png;src\resource\weathericons\409.png;src\resource\weathericons\457.png;src\resource\weathericons\154.png;src\resource\weathericons\315.png;src\resource\weathericons\512.png;src\resource\weathericons\307.png;src\resource\weathericons\408.png;src\resource\weathericons\456.png;src\resource\weathericons\504.png;src\resource\weathericons\153.png;src\resource\weathericons\314.png;src\resource\weathericons\511.png;src\resource\weathericons\306.png;src\resource\weathericons\407.png;src\resource\weathericons\104.png;src\resource\weathericons\503.png;src\resource\weathericons\313.png;src\resource\weathericons\510.png;src\resource\weathericons\406.png;src\resource\weathericons\305.png;src\resource\weathericons\103.png;src\resource\weathericons\502.png;src\resource\weathericons\901.png;src\resource\weathericons\999.png;src\precipitationforecast\map.html;src\resource\qss\topinfo.css;src\resource\qss\close.png;src\resource\qss\pluginmanagebt.css;src\resource\qss\dialbackground.png;src\resource\qss\install.png;src\resource\qss\plugininfo.css;src\resource\qss\airquality.png;src\resource\qss\uninstall.png;src\resource\qss\add.png;src\resource\qss\pluginmanage.css;src\resource\qss\closehover.png;src\resource\qss\return.png;src\resource\qss\simpleweatherinfo.css;src\resource\qss\returnhover.png;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\roomenvironmentmonitor.qrc;src\resource\weathericons\312.png;src\resource\weathericons\405.png;src\resource\weathericons\304.png;src\resource\weathericons\102.png;src\resource\weathericons\501.png;src\resource\weathericons\900.png;src\resource\weathericons\150.png;src\resource\weathericons\311.png;src\resource\weathericons\404.png;src\resource\weathericons\303.png;src\resource\weathericons\101.png;src\resource\weathericons\351.png;src\resource\weathericons\500.png;src\resource\weathericons\310.png;src\resource\weathericons\509.png;src\resource\weathericons\403.png;src\resource\weathericons\302.png;src\resource\weathericons\100.png;src\resource\weathericons\350.png;src\resource\weathericons\410.png;src\resource\weathericons\508.png;src\resource\weathericons\402.png;src\resource\weathericons\301.png;src\resource\weathericons\399.png;src\resource\weathericons\318.png;src\resource\weathericons\515.png;src\resource\weathericons\507.png;src\resource\weathericons\401.png;src\resource\weathericons\300.png;src\resource\weathericons\499.png;src\resource\weathericons\317.png;src\resource\weathericons\514.png;src\resource\weathericons\309.png;src\resource\weathericons\400.png;src\resource\weathericons\LICENSE;src\resource\weathericons\316.png;src\resource\weathericons\513.png;src\resource\weathericons\308.png;src\resource\weathericons\409.png;src\resource\weathericons\457.png;src\resource\weathericons\154.png;src\resource\weathericons\315.png;src\resource\weathericons\512.png;src\resource\weathericons\307.png;src\resource\weathericons\408.png;src\resource\weathericons\456.png;src\resource\weathericons\504.png;src\resource\weathericons\153.png;src\resource\weathericons\314.png;src\resource\weathericons\511.png;src\resource\weathericons\306.png;src\resource\weathericons\407.png;src\resource\weathericons\104.png;src\resource\weathericons\503.png;src\resource\weathericons\313.png;src\resource\weathericons\510.png;src\resource\weathericons\406.png;src\resource\weathericons\305.png;src\resource\weathericons\103.png;src\resource\weathericons\502.png;src\resource\weathericons\901.png;src\resource\weathericons\999.png;src\precipitationforecast\map.html;src\resource\qss\topinfo.css;src\resource\qss\close.png;src\resource\qss\pluginmanagebt.css;src\resource\qss\dialbackground.png;src\resource\qss\install.png;src\resource\qss\plugininfo.css;src\resource\qss\airquality.png;src\resource\qss\uninstall.png;src\resource\qss\add.png;src\resource\qss\pluginmanage.css;src\resource\qss\closehover.png;src\resource\qss\return.png;src\resource\qss\simpleweatherinfo.css;src\resource\qss\returnhover.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name roomenvironmentmonitor src\roomenvironmentmonitor.qrc -o temp\debug\rc\qrc_roomenvironmentmonitor.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name roomenvironmentmonitor src\roomenvironmentmonitor.qrc -o temp\debug\rc\qrc_roomenvironmentmonitor.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">RCC src/roomenvironmentmonitor.qrc</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">RCC src/roomenvironmentmonitor.qrc</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">temp\debug\rc\qrc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\rc\qrc_roomenvironmentmonitor.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="src\resource\qss\simpleweatherinfo.css" />
     <None Include="src\resource\qss\topinfo.css" />
+    <None Include="src\resource\qss\uninstall.png" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="G:\Programming\C++_Qt\weathermonitor\weathermonitor_resource.rc" />
+    <ResourceCompile Include="G:\Programming\C++_Qt\weathermonitor\monitor\weathermonitor_resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

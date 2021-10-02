@@ -11,6 +11,7 @@
 #include <QSpacerItem>
 
 #include "plugininfo.h"
+#include "../../../plugindynamiclinklibrary/interface.h"
 
 // 插件配置保存信息
 struct PluginConfiguration{
@@ -30,6 +31,8 @@ class PluginManage : public QFrame
 public:
     explicit PluginManage(QWidget *parent = nullptr);
 
+    ~PluginManage();
+
     // 界面布局
     void initUILayout(QWidget *parent);
 
@@ -45,13 +48,16 @@ private:
     std::vector<QPushButton*> vec_pluginBt;
     std::map<std::string,PluginConfiguration> map_pluginConfig; // 插件配置信息
 
+    std::vector<QLibrary*> vet_loadlibrary;
+    std::vector<TestInterface*> vet_interface;
+
 signals:
 
 private:
     // 界面布局
     QVBoxLayout *p_vlayout=nullptr;
         QHBoxLayout *p_hlayoutTop=nullptr;
-        QFrame *p_frameTop=nullptr;
+		QWidget *p_frameTop=nullptr;
             QLabel *p_labPluginTitle=nullptr;
             QSpacerItem *p_hSpacerTop=nullptr;
             QPushButton *p_btClose=nullptr;
