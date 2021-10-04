@@ -51,4 +51,7 @@ Makefile.*
 *.usr
 *.Debug
 *.Release
+*.user
+*.sdf
+*.filters
 comdefine.h
