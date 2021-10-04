@@ -287,6 +287,9 @@ bool PluginManage::event(QEvent *event)
     switch (event->type()) {
     case QEvent::MouseButtonPress:
     {
+        QPoint pos=QCursor::pos();
+        if(this->mapFromGlobal(pos).y()>p_frameTop->height())
+            break;
         pressed=true;
         posCursor=QCursor::pos();
     }

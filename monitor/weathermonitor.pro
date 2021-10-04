@@ -13,6 +13,7 @@ SOURCES += \
     src/dialplate/dialplate.cpp \
     src/iteminfobase/iteminfobase.cpp \
     src/main.cpp \
+    src/monitormenu/monitormenu.cpp \
     src/pluginmanage/plugininfo.cpp \
     src/pluginmanage/pluginmanage.cpp \
     src/precipitationforecast/precipitationforecast.cpp \
@@ -21,12 +22,14 @@ SOURCES += \
     src/simpleinfo/simpleweatherinfo.cpp \
     src/weatherinfotoday/weatherinfotoday.cpp \
     src/dialimage/dialimage.cpp \
-    src/weathermonitor.cpp
+    src/weathermonitor.cpp \
+    src/uimanage.cpp
 
 HEADERS += \
     src/common/comdefine.h \
     src/dialplate/dialplate.h \
     src/iteminfobase/iteminfobase.h \
+    src/monitormenu/monitormenu.h \
     src/pluginmanage/plugininfo.h \
     src/pluginmanage/pluginmanage.h \
     src/precipitationforecast/precipitationforecast.h \
@@ -35,7 +38,8 @@ HEADERS += \
     src/simpleinfo/simpleweatherinfo.h \
     src/weatherinfotoday/weatherinfotoday.h \
     src/dialimage/dialimage.h \
-    src/weathermonitor.h
+    src/weathermonitor.h \
+    src/uimanage.h
 
 RESOURCES += \
     src/roomenvironmentmonitor.qrc
