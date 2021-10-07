@@ -1,0 +1,33 @@
+*{
+    background:transparent;
+}
+#aboutDialog{
+    background-color:#0A2A45;
+    border:1px solid gray;
+    border-radius:12px;
+}
+#btaboutTitle{
+    font:16px 'Microsoft YaHei';
+    color:white;
+}
+#btCloseTop{
+    border:0px;
+    image:url(:/qss/resource/qss/close.png);
+    background:transparent;
+}
+#btCloseTop::hover{
+    border:0px;
+    image:url(:/qss/resource/qss/closehover.png);
+    background:transparent;
+}
+#btCloseBottom{
+    border:1px solid gray;
+    border-radius:2px;
+    color:white;
+    background-color:rgba(0,125,255,200);
+}
+#btCloseBottom::hover{
+    border:1px solid gray;
+    border-radius:2px;
+    background-color:rgba(0,125,255,160);
+}
