@@ -17,13 +17,19 @@ UIManage::UIManage(QObject *parent) : QObject(parent)
     {
         if(name.compare("plugin")==0)
         {
-            pluginManage->show();
+            this->pluginManage->raise();
+            this->pluginManage->show();
             return;
         }
         else if(name.compare("exit")==0)
         {
             timer.stop();
             emit exit(0);
+            return;
+        }
+        else if(name.compare("feedback")==0)
+        {
+            this->pfeedbackDialog->exec();
             return;
         }
         else if(name.compare("about")==0)
@@ -44,6 +50,7 @@ UIManage::UIManage(QObject *parent) : QObject(parent)
     });
     pluginManage->loadPluginDLL();
 
+    pfeedbackDialog=new FeedbackDialog(w);
     paboutDialog=new AboutDialog(w);
 
 }

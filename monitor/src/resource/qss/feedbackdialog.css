@@ -1,0 +1,68 @@
+*{
+    background:transparent;
+}
+#aboutDialog{
+    background-color:#0A2A45;
+    border:1px solid gray;
+    border-radius:12px;
+}
+#btaboutTitle{
+    font:16px 'Microsoft YaHei';
+    color:white;
+}
+#btCloseTop{
+    border:0px;
+    image:url(:/qss/resource/qss/close.png);
+    background:transparent;
+}
+#btCloseTop::hover{
+    border:0px;
+    image:url(:/qss/resource/qss/closehover.png);
+    background:transparent;
+}
+
+#labFeedback{
+    color:white;
+}
+
+QComboBox {
+    color:white;
+    border: 1px solid gray;
+    border-radius: 3px;
+    background:transparent;/*-color:rgba(0,125,255,200);*/
+}
+QComboBox::drop-down {
+    border:0px;
+    margin-right:10px;
+}
+QComboBox::down-arrow {
+    width: 18px;
+    height:18px;
+    image: url(:/qss/resource/qss/down.png);
+}
+QComboBox QAbstractItemView{
+    color:white;
+    height:20px;
+    background:rgba(14,58,96,183);
+    border:1px solid gray;
+    border-radius:2px;
+}
+
+#editFeedback{
+    color:white;
+    background:transparent;
+    border:1px solid gray;
+    border-radius:2px;
+}
+
+#btCloseBottom{
+    border:1px solid gray;
+    border-radius:2px;
+    color:white;
+    background-color:rgba(0,125,255,200);
+}
+#btCloseBottom::hover{
+    border:1px solid gray;
+    border-radius:2px;
+    background-color:rgba(0,125,255,160);
+}

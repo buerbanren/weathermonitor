@@ -41,9 +41,10 @@ void MonitorMenu::initUILayout()
     connect(pbtUpload,&QPushButton::clicked,[=]()
     {
         pgridlayoutMainMenu->setContentsMargins({32,32,32,0});
-        this->move((parentWidget()->width()-this->width())/2,(parentWidget()->height()-this->height())/2);
+        this->move((parentWidget()->width()-this->width())/2, parentWidget()->height()-this->height() - 16);
         pbtUpload->hide();
         pbtDownload->show();
+        this->raise();
     });
 
     btgroupMenu=new QButtonGroup(this);

@@ -12,6 +12,7 @@ SOURCES += \
     src/about/aboutdialog.cpp \
     src/common/comdefine.cpp \
     src/dialplate/dialplate.cpp \
+    src/feedback/feedbackdialog.cpp \
     src/iteminfobase/iteminfobase.cpp \
     src/main.cpp \
     src/monitormenu/monitormenu.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     src/about/aboutdialog.h \
     src/common/comdefine.h \
     src/dialplate/dialplate.h \
+    src/feedback/feedbackdialog.h \
     src/iteminfobase/iteminfobase.h \
     src/monitormenu/monitormenu.h \
     src/pluginmanage/plugininfo.h \

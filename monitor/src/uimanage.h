@@ -5,6 +5,7 @@
 #include "weathermonitor.h"
 #include "monitormenu/monitormenu.h"
 #include "pluginmanage/pluginmanage.h"
+#include "feedback/feedbackdialog.h"
 #include "about/aboutdialog.h"
 
 class UIManage : public QObject
@@ -25,6 +26,7 @@ private:
     WeatherMonitor *w=nullptr;
     MonitorMenu *monitormenu=nullptr;
     PluginManage *pluginManage=nullptr;
+    FeedbackDialog *pfeedbackDialog=nullptr;
     AboutDialog *paboutDialog=nullptr;
 
 };
