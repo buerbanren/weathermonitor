@@ -1,4 +1,11 @@
-﻿#ifndef PRECIPITATIONFORECAST_H
+﻿/*******************************************
+ *
+ * 2021.09.11
+ * 逐小时天气预报
+ *
+ * ****************************************/
+
+#ifndef PRECIPITATIONFORECAST_H
 #define PRECIPITATIONFORECAST_H
 
 #include <QGridLayout>

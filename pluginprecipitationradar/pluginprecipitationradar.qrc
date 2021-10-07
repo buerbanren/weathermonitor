@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/pluginprecipitationradar">
+        <file>src/resource/qss/weatherradar.png</file>
+    </qresource>
+</RCC>

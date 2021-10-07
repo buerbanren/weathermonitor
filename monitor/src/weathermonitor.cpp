@@ -1,7 +1,6 @@
 ﻿#include "weathermonitor.h"
 #include "src/common/comdefine.h"
 
-#include <QMessageBox>
 #include <QDebug>
 #include <QCryptographicHash>
 
@@ -21,6 +20,24 @@ WeatherMonitor::WeatherMonitor(QWidget *parent)
 WeatherMonitor::~WeatherMonitor()
 {
 
+}
+
+void WeatherMonitor::addPluginPage(QWidget * const widget)
+{
+    if(!widget)
+        return;
+    widget->show();
+    for(int i=0;i<vetPluginPageStatus.size();i++)
+    {
+        if( true == vetPluginPageStatus.at(i))
+        {
+            continue;
+        }
+        widget->lower();
+        gridlayoutMain->addWidget(widget, 3,i,1,1);
+        vetPluginPageStatus[i]=true;
+        break;
+    }
 }
 
 void WeatherMonitor::resizeEvent(QResizeEvent *event)
@@ -220,6 +237,8 @@ void WeatherMonitor::resolveResponseWarn()
             continue;
 
         it = _it.toObject().find("description")->toString();
+        if( -1 == it.indexOf("发布"))
+            continue;
         simpleinfo->setWeatherInfo("warn",it.toStdString());
         break;
     }
@@ -392,6 +411,9 @@ void WeatherMonitor::initialControl()
 
 void WeatherMonitor::startNetworkConfig()
 {
+    info.setText("最近更新时间:"+QDateTime::currentDateTime().toString());
+    info.setModal(false);
+    //info.show();
 
     // ip地址转行政区域
     pNetRequestLocation->setUrl(QUrl(QString(REQUEST_LOCALIPURL)));

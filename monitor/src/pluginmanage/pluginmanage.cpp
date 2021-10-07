@@ -19,7 +19,7 @@ PluginManage::PluginManage(QWidget *parent) : QFrame(parent)
 
     initUILayout(this);
 
-    loadPluginDLL();
+    //loadPluginDLL();
 }
 
 PluginManage::~PluginManage()
@@ -190,10 +190,12 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
     vet_loadlibrary.push_back(library);
     vet_interface.push_back(testInterface);
 
-    testWidget=testInterface->getPluginWidget();
-    testWidget->setStyleSheet("background-color:red;");
+    testWidget = testInterface->getPluginWidget();
+    if(!testWidget)
+        return false;
+    //testWidget->setStyleSheet("background-color:red;");
     testWidget->show();
-	testWidget->resize(400, 200);
+    testWidget->setFixedSize(400, 200);
 
     vec_pluginBt.push_back(new QPushButton(this));
 
@@ -241,6 +243,7 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
 	//else
 	//	;
 
+    emit addPluginPage(testWidget);
     return true;
 }
 

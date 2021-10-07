@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 
     UIManage um;
     um.show();
+    QObject::connect(&um,&UIManage::exit,&a,&QApplication::exit);
 
-	return a.exec();
+    return a.exec();
 }

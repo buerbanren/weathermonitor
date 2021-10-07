@@ -1,11 +1,11 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef INTERFACE_H
+#define INTERFACE_H
 
-#include "test_global.h"
+#include "pluginprecipitationradar_global.h"
 
 #include <QWidget>
 
-class TestInterface
+class TestInterface: public QObject
 {
 public:
     virtual ~TestInterface(){}
@@ -17,4 +17,4 @@ public:
 
 };
 
-#endif // TEST_H
+#endif // INTERFACE_H

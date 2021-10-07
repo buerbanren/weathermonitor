@@ -5,6 +5,7 @@
 #include <QGridLayout>
 #include <QDateTime>
 #include <QString>
+#include <QMessageBox>
 
 #include "simpleinfo/simpleweatherinfo.h"
 #include "topinfo/topinfo.h"
@@ -21,15 +22,21 @@ public:
     WeatherMonitor(QWidget *parent = nullptr);
     ~WeatherMonitor();
 
-protected:
+/*****************界面布局*********************/
+public:
+    void addPluginPage(QWidget * const widget);
+
+private:
     void resizeEvent(QResizeEvent *event);
     void resolveResponseWeather();
     void resolveResponseWarn();
     void resolveResponseLocation();
     void requestWeatherInfo();
 
-private:
     void initialControl();
+
+    // 目前只预留底部最后一行三列的窗口数量
+    std::vector<bool> vetPluginPageStatus={false,false,false};
 
 private:
     QGridLayout *gridlayoutMain=nullptr;
@@ -40,6 +47,8 @@ private:
     WeatherInfoToday *infoToday=nullptr;
     PrecipitationForecast *preipitationForececast = nullptr;
     WeekendForecast *weekendForecast=nullptr;
+
+/********************网络请求******************/
 
 public:
     void startNetworkConfig();
@@ -67,6 +76,6 @@ private:
     QJsonDocument jsdoc;
     QJsonObject jsobj;
 
-
+    QMessageBox info; // 数据更新时间弹窗
 };
 #endif // WEATHERMONITOR_H

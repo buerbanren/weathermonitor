@@ -37,7 +37,7 @@ void MonitorMenu::initUILayout()
     pbtUpload=new QPushButton(this);
     pbtUpload->setFixedSize(46,22);
     pbtUpload->setObjectName("btUpWidget");
-    pgridlayoutMainMenu->addWidget(pbtUpload, 0, 1);
+    pgridlayoutMainMenu->addWidget(pbtUpload, 0, 1, 1, 2, Qt::AlignHCenter);
     connect(pbtUpload,&QPushButton::clicked,[=]()
     {
         pgridlayoutMainMenu->setContentsMargins({32,32,32,0});
@@ -48,37 +48,54 @@ void MonitorMenu::initUILayout()
 
     btgroupMenu=new QButtonGroup(this);
 
+    // 软件退出
+	pbtExit = new QPushButton(this);
+    pbtExit->setFixedSize(46,46);
+    pbtExit->setProperty("name","exit");
+    pbtExit->setObjectName("btExit");
+    btgroupMenu->addButton(pbtExit);
+    pgridlayoutMainMenu->addWidget(pbtExit,1,0);
+    structMenuitem.button=pbtExit;
+	
+	plabExit = new QLabel("关闭", this);
+	plabExit->setFixedSize(46, 24);
+	plabExit->setProperty("name", "exit");
+    plabExit->setAlignment(Qt::AlignCenter);
+    pgridlayoutMainMenu->addWidget(plabExit,2,0);
+    structMenuitem.label=plabExit;
+    mapMenuControl["exit"]=structMenuitem;
+
     // 插件区
-    pbtPlugin=new QPushButton(this);
+	pbtPlugin = new QPushButton(this);
     pbtPlugin->setFixedSize(46,46);
     pbtPlugin->setProperty("name","plugin");
     pbtPlugin->setObjectName("btPlugin");
     btgroupMenu->addButton(pbtPlugin);
-    pgridlayoutMainMenu->addWidget(pbtPlugin,1,0);
+    pgridlayoutMainMenu->addWidget(pbtPlugin,1,1);
     structMenuitem.button=pbtPlugin;
 
-    plabPlugin=new QLabel("插件", this);
+	plabPlugin = new QLabel("插件", this);
     plabPlugin->setFixedSize(46,24);
     plabPlugin->setProperty("name","plugin");
     plabPlugin->setAlignment(Qt::AlignCenter);
-    pgridlayoutMainMenu->addWidget(plabPlugin,2,0);
+    pgridlayoutMainMenu->addWidget(plabPlugin,2,1);
     structMenuitem.label=plabPlugin;
     mapMenuControl["plugin"]=structMenuitem;
 
     // 反馈区
-    pbtFeedback=new QPushButton(this);
+	pbtFeedback = new QPushButton(this);
     pbtFeedback->setFixedSize(46,46);
     pbtFeedback->setProperty("name","feedback");
     pbtFeedback->setObjectName("btFeedback");
     btgroupMenu->addButton(pbtFeedback);
-    pgridlayoutMainMenu->addWidget(pbtFeedback,1,1);
+    pgridlayoutMainMenu->addWidget(pbtFeedback,1,2);
     structMenuitem.button=pbtFeedback;
 
-    plabFeedback=new QLabel("反馈", this);
+	plabFeedback = new QLabel("反馈", this);
     plabFeedback->setFixedSize(46,24);
     plabFeedback->setProperty("name","feedback");
     plabFeedback->setAlignment(Qt::AlignCenter);
-    pgridlayoutMainMenu->addWidget(plabFeedback,2,1);
+    pgridlayoutMainMenu->addWidget(plabFeedback,2,2);
     structMenuitem.label=plabFeedback;
     mapMenuControl["feedback"]=structMenuitem;
 
@@ -88,14 +105,14 @@ void MonitorMenu::initUILayout()
     pbtAbout->setProperty("name","about");
     pbtAbout->setObjectName("btAbout");
     btgroupMenu->addButton(pbtAbout);
-    pgridlayoutMainMenu->addWidget(pbtAbout,1,2);
+    pgridlayoutMainMenu->addWidget(pbtAbout,1,3);
     structMenuitem.button=pbtAbout;
 
     plabAbout=new QLabel("关于", this);
     plabAbout->setFixedSize(46,24);
     plabAbout->setProperty("name","about");
     plabAbout->setAlignment(Qt::AlignCenter);
-    pgridlayoutMainMenu->addWidget(plabAbout,2,2);
+    pgridlayoutMainMenu->addWidget(plabAbout,2,3);
     structMenuitem.label=plabAbout;
     mapMenuControl["about"]=structMenuitem;
 
@@ -103,7 +120,7 @@ void MonitorMenu::initUILayout()
     pbtDownload=new QPushButton(this);
     pbtDownload->setFixedSize(46,22);
     pbtDownload->setObjectName("btDownWidget");
-    pgridlayoutMainMenu->addWidget(pbtDownload, 3, 1);
+    pgridlayoutMainMenu->addWidget(pbtDownload, 3, 1, 1, 2, Qt::AlignHCenter);
     connect(pbtDownload,&QPushButton::clicked,[=]()
     {
         pgridlayoutMainMenu->setContentsMargins({32,0,32,8});

@@ -37,6 +37,9 @@ QPushButton::hover{
     border:2px solid rgba(235,235,235,0);/*96);*/
     border-radius:6px;
 }
+#btExit{
+    image:url(:/qss/resource/qss/exit.png);
+}
 #btPlugin{
     image:url(:/qss/resource/qss/plugin.png);
 }

@@ -6,7 +6,7 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 
-#include "../../../plugindynamiclinklibrary/interface.h"
+#include "../../../pluginprecipitationradar/src/interface.h"
 
 class PluginInfo : public QWidget
 {

@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/about/aboutdialog.cpp \
     src/common/comdefine.cpp \
     src/dialplate/dialplate.cpp \
     src/iteminfobase/iteminfobase.cpp \
@@ -26,6 +27,9 @@ SOURCES += \
     src/uimanage.cpp
 
 HEADERS += \
+    ../pluginprecipitationradar/src/interface.h\
+    \
+    src/about/aboutdialog.h \
     src/common/comdefine.h \
     src/dialplate/dialplate.h \
     src/iteminfobase/iteminfobase.h \

@@ -2,4 +2,4 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     monitor/weathermonitor.pro \
-    plugindynamiclinklibrary/test.pro
+    pluginprecipitationradar/pluginprecipitationradar.pro

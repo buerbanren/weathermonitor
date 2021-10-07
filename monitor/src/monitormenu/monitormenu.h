@@ -32,6 +32,8 @@ protected:
 private:
     QGridLayout *pgridlayoutMainMenu=nullptr;
         QPushButton *pbtUpload=nullptr; // 上拉窗口按键
+        QPushButton *pbtExit=nullptr;   // 退出
+        QLabel *plabExit=nullptr;
         QPushButton *pbtPlugin=nullptr; // 插件
         QLabel *plabPlugin=nullptr;
         QPushButton *pbtFeedback=nullptr;    //反馈

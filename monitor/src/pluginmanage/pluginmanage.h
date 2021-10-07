@@ -11,7 +11,7 @@
 #include <QSpacerItem>
 
 #include "plugininfo.h"
-#include "../../../plugindynamiclinklibrary/interface.h"
+#include "../../../pluginprecipitationradar/src/interface.h"
 
 // 插件配置保存信息
 struct PluginConfiguration{
@@ -36,7 +36,7 @@ public:
     // 界面布局
     void initUILayout(QWidget *parent);
 
-    // 自动加载插件dll
+    // 自动加载插件dll,此函数在关联addPluginPage信号后，进行调用
     void loadPluginDLL();
     // 加载指定插件dll
     bool loadPluginDLL(std::string name, bool isnew=false);
@@ -52,6 +52,7 @@ private:
     std::vector<TestInterface*> vet_interface;
 
 signals:
+    void addPluginPage(QWidget * const widgetplugin);
 
 private:
     // 界面布局
