@@ -9,7 +9,7 @@ WeatherMonitor::WeatherMonitor(QWidget *parent)
 {
     //this->setWindowFlags(Qt::FramelessWindowHint);
     //this->setAttribute(Qt::WA_TranslucentBackground);
-    initialControl();    
+    initialControl();
 
 	Common::setRootWidget(this);
 

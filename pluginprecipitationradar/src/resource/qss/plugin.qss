@@ -1,0 +1,13 @@
+*{
+    border:0px;
+}
+#btZoomIn{
+    image:url(:/pluginprecipitationradar/src/resource/qss/zoomin.png);
+}
+#btZoomOut{
+    image:url(:/pluginprecipitationradar/src/resource/qss/zoomout.png);
+}
+#btZoomIn::hover,#btZoomOut::hover{
+    background-color:rgba(0,0,0,60);
+    border-radius:2px;
+}

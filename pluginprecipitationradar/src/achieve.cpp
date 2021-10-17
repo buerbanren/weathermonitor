@@ -14,8 +14,17 @@ TestInterface* getInstall()
 
 AchieveClass::AchieveClass()
 {
+    std::string qssstyledata;
+
+    QFile qssfile(":/pluginprecipitationradar/src/resource/qss/plugin.qss");
+    if(qssfile.open(QFile::OpenModeFlag::ReadOnly))
+    {
+        qssstyledata=qssfile.readAll().toStdString();
+    }
+
     widget=new QWidget(nullptr);
     widget->resize(100,50);
+    widget->setStyleSheet(qssstyledata.data());
 
     pnetmanager=new QNetworkAccessManager(widget);
 
@@ -39,8 +48,29 @@ AchieveClass::AchieveClass()
 
     imagelabel=new QLabel(widget);
     imagelabel->move(0,0);
-    imagelabel->setStyleSheet("background-color:rgba(0,0,0,100);");
     imagelabel->show();
+
+    // 雷达图放大
+    pbtZoomIn=new QPushButton(widget);
+    pbtZoomIn->setObjectName("btZoomIn");
+    pbtZoomIn->move(10,10);
+    pbtZoomIn->setFixedSize(20,20);
+    pbtZoomIn->show();
+    connect(pbtZoomIn,&QPushButton::clicked,[=]()
+    {
+        radarZoom(ZoomType::ZoomIn);
+    });
+
+    // 雷达图缩小
+    pbtZoomOut=new QPushButton(widget);
+    pbtZoomOut->setObjectName("btZoomOut");
+    pbtZoomOut->move(10,40);
+    pbtZoomOut->setFixedSize(20,20);
+    pbtZoomOut->show();
+    connect(pbtZoomOut,&QPushButton::clicked,[=]()
+    {
+        radarZoom(ZoomType::ZoomOut);
+    });
 }
 
 QWidget *AchieveClass::getPluginWidget()
@@ -180,6 +210,7 @@ void AchieveClass::requestImageData(std::string key)
         {
 			QImage img;
 			img.loadFromData(imgdata);
+            radarImageRect={0,0,img.width(),img.height()};
             imgdata.clear();
 
             mapRainfallImg[key] = img;
@@ -199,7 +230,25 @@ void AchieveClass::requestImageData(std::string key)
             list_time.pop_front();
             emit imgdataFinished(curtime);
 		});
-	}
+    }
+}
+
+void AchieveClass::radarZoom(ZoomType type)
+{
+    int zoomSizeWH=0;
+    switch (type) {
+    case ZoomType::ZoomIn://放大
+        zoomSizeWH=50;
+        break;
+    case ZoomType::ZoomOut://缩小
+        zoomSizeWH=-50;
+        break;
+    }
+    radarImageRect.setX(radarImageRect.x()+zoomSizeWH);
+    radarImageRect.setY(radarImageRect.y()+zoomSizeWH);
+    radarImageRect.setWidth(radarImageRect.width()-(zoomSizeWH*2));
+    radarImageRect.setHeight(radarImageRect.height()-(zoomSizeWH*2));
+
 }
 
 void AchieveClass::playRadarImage()
@@ -210,7 +259,9 @@ void AchieveClass::playRadarImage()
     }
 
     //imagelabel->setPixmap(QPixmap("C:\\Users\\hp_db\\Desktop\\monitor\\0020.png"));
-    imagelabel->setPixmap(QPixmap::fromImage(radarIterator->second.scaled(widget->size())));
+    QImage radarimg;
+    radarimg=radarIterator->second.copy(radarImageRect);
+    imagelabel->setPixmap(QPixmap::fromImage(radarimg.scaled(widget->size())));
 
     radarIterator++;
 }

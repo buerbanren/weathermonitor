@@ -13,12 +13,20 @@
 #include <QDateTime>
 #include <QTimer>
 #include <QLabel>
+#include <QPushButton>
+#include <QFile>
 
 #define RAINFALLRADAR_DATA_DOMAIN "http://d1.weather.com.cn/newwebgis/radar/"
 #define RAINFALLRADAR_DATA_PATH "radar_list_new.json?_=1633345386515"
 
 // 动态库导出接口
 extern "C" INTERFACE_EXPORT TestInterface* getInstall();
+
+enum ZoomType
+{
+    ZoomIn = 1, //放大
+    ZoomOut // 缩小
+};
 
 class AchieveClass: public TestInterface
 {
@@ -47,6 +55,7 @@ private:
 
     void analysisRadarData(QByteArray data);
     void requestImageData(std::string key);
+    void radarZoom(ZoomType type);
     QWidget *widget=nullptr;
 
 
@@ -59,6 +68,7 @@ private:
 
     std::map<std::string,std::string> mapRainfallForImg;
     std::map<std::string, QImage> mapRainfallImg;
+    QRect radarImageRect;
 
     // 单张图片数据
     QByteArray imgdata;
@@ -66,6 +76,8 @@ private:
     QTimer timerRainfallPlay;
     std::map<std::string, QImage>::iterator radarIterator;
     QLabel *imagelabel=nullptr;
+    QPushButton *pbtZoomIn=nullptr;
+    QPushButton *pbtZoomOut=nullptr;
 };
 
 #endif // ACHIEVE_H
