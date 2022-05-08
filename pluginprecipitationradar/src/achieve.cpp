@@ -2,7 +2,7 @@
 #include <QMessageBox>
 #include <QPainter>
 
-TestInterface *testInterface=nullptr;
+TestInterface *2=nullptr;
 
 TestInterface* getInstall()
 {
@@ -42,7 +42,7 @@ AchieveClass::AchieveClass()
         requestImageData(key);
     });
 
-    timerRainfallPlay.setInterval(200);
+    timerRainfallPlay.setInterval(500);
 
     connect(&timerRainfallPlay,&QTimer::timeout, this, &AchieveClass::playRadarImage);
 
@@ -81,6 +81,16 @@ QWidget *AchieveClass::getPluginWidget()
 QImage AchieveClass::getPluginIcon()
 {
     return QImage(":/pluginprecipitationradar/src/resource/qss/weatherradar.png");
+}
+
+void AchieveClass::getPluginInfo(stuPluginInfo &info)
+{
+    info.ico=getPluginIcon();
+    info.name="降水雷达";
+    info.version="0.0.1";
+    info.copyright="";
+    info.lastTime="2021-11-18";
+    info.description="此插件提供由雷达探测云层信息后推算出的全国各地区降水概率情况，包含未来的24小时降水量";
 }
 
 AchieveClass::~AchieveClass()

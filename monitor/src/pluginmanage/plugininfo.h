@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QLabel>
 
 #include "../../../pluginprecipitationradar/src/interface.h"
 

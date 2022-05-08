@@ -38,7 +38,11 @@ void PluginInfo::init()
 
     // 插件信息栏
     frame_infocontent=new QWidget(this);
-
+    frame_infocontent->setStyleSheet("background-color:red");
     vlayout_info->addWidget(frame_infocontent);
+
+    QLabel *labPluginIco;
+
+
 
 }

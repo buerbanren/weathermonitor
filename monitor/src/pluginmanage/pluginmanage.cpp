@@ -3,6 +3,7 @@
 #include <QEvent>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QDebug>
 
 #ifdef WIN32
 	#include <windows.h>
@@ -271,12 +272,16 @@ void PluginManage::changePluginManagePage(PluginMangePage type)
     if(itpluginwid==map_plugintype.end())
         return;
     p_vlayout->addWidget(map_plugintype.at(type));
-    map_plugintype.at(type)->show();
+    itpluginwid->second->show();
 
     auto ittitle=map_plugintitle.find(type);
     if(ittitle==map_plugintitle.end())
         return;
     setTitle(map_plugintitle.at(type));
+
+    stuPluginInfo info;
+    vet_interface.at(vet_interface.size()-1)->getPluginInfo(info);
+
 }
 
 void PluginManage::setTitle(string title)

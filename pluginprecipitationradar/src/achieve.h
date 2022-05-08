@@ -40,6 +40,8 @@ public:
     // 获取插件应用图标
 	virtual QImage getPluginIcon()override;
 
+    virtual void getPluginInfo(stuPluginInfo &info)override;
+
 	~AchieveClass()override;
 
     // 播放降水雷达探测图
