@@ -54,4 +54,3 @@ Makefile.*
 *.user
 *.sdf
 *.filters
-comdefine.h
