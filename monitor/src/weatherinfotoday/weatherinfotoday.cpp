@@ -34,7 +34,7 @@ WeatherInfoToday::WeatherInfoToday(QWidget *parent)
 	}
 
 	gridlayoutInfoToday->setVerticalSpacing(16);
-	gridlayoutInfoToday->setContentsMargins({ 30,96,40,30 });
+    gridlayoutInfoToday->setContentsMargins({ 30,72,40,30 });
 
 	this->setLayout(gridlayoutInfoToday);
     this->setStyleSheet("background:transparent;");

@@ -2,7 +2,7 @@
 #include <QMessageBox>
 #include <QPainter>
 
-TestInterface *2=nullptr;
+TestInterface *testInterface=nullptr;
 
 TestInterface* getInstall()
 {

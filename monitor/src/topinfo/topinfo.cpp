@@ -14,6 +14,13 @@ void TopInfo::setCityInfo(string district)
     labTopInfoAddress->setText(district.data());
 }
 
+void TopInfo::updateTime()
+{
+    QDateTime dt = QDateTime::currentDateTime();
+    QString strDateTime = dt.toString("MM-dd hh:mm");
+    this->labTopLastTime->setText("更新时间: " + strDateTime);
+}
+
 void TopInfo::resizeEvent(QResizeEvent *event)
 {
     // 加载样式
@@ -44,6 +51,10 @@ void TopInfo::initialControl()
 	labTopInfoAddress->setFixedSize(94, 32);
     labTopInfoAddress->setText(u8"未知地区");
 
+    labTopLastTime = new QLabel(this);
+    labTopLastTime->setAlignment(Qt::AlignHCenter);
+    labTopLastTime->setScaledContents(true);
+
     spacerItemLR2=new QSpacerItem(40,20,QSizePolicy::Expanding,QSizePolicy::Minimum);
 
     spacerItemLR3=new QSpacerItem(40,20,QSizePolicy::Expanding,QSizePolicy::Minimum);
@@ -52,10 +63,13 @@ void TopInfo::initialControl()
 
     hlayoutTopInfo=new QHBoxLayout(this);
     hlayoutTopInfo->setContentsMargins({0,0,0,0});
+
     hlayoutTopInfo->addWidget(labTopInfoDate);
     hlayoutTopInfo->addSpacerItem(spacerItemLR1);
     hlayoutTopInfo->addWidget(labTopInfoAddress);
     hlayoutTopInfo->addSpacerItem(spacerItemLR2);
+    hlayoutTopInfo->addWidget(labTopLastTime);
+
     hlayoutTopInfo->addSpacerItem(spacerItemLR3);
     hlayoutTopInfo->addSpacerItem(spacerItemLR4);
 }

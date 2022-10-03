@@ -209,6 +209,7 @@ void WeatherMonitor::resolveResponseWeather()
     weekendForecast->setDaysInfo(weekdaydata);
 
     jsdata.clear();
+    topinfo->updateTime();
 }
 
 void WeatherMonitor::resolveResponseWarn()
@@ -411,8 +412,8 @@ void WeatherMonitor::initialControl()
 
 void WeatherMonitor::startNetworkConfig()
 {
-    info.setText("最近更新时间:"+QDateTime::currentDateTime().toString());
-    info.setModal(false);
+    //info.setText("最近更新时间:"+QDateTime::currentDateTime().toString());
+    //info.setModal(false);
     //info.show();
 
     // ip地址转行政区域

@@ -17,6 +17,7 @@ public:
 
     void setCityInfo(std::string district);
 
+    void updateTime();
 
 protected:
     virtual void resizeEvent(QResizeEvent *event);
@@ -33,12 +34,13 @@ private:
 private:
     QLabel *labTopInfoDate=nullptr;
     QLabel *labTopInfoAddress=nullptr;
+    QLabel *labTopLastTime=nullptr;
+
     QSpacerItem *spacerItemLR1=nullptr;
     QSpacerItem *spacerItemLR2=nullptr;
     QSpacerItem *spacerItemLR3=nullptr;
     QSpacerItem *spacerItemLR4=nullptr;
     QHBoxLayout *hlayoutTopInfo=nullptr;
-
 
 };
 

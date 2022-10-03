@@ -69,11 +69,13 @@ string Common::convertIcoType2Path(string type)
     if(it!=jsvalueicons.end())
     {
         icoPath.append(it.value().toObject().value("code").toString().toStdString());
-        icoPath.append(".png");
-        return icoPath;
     }
-
-    return "";
+    else
+    {
+         icoPath.append(jsvalueicons["未知"].toObject().value("code").toString().toStdString());
+    }
+    icoPath.append(".png");
+    return icoPath;
 }
 
 void Common::setMsgWeatherUrl(double _lat, double _lon)

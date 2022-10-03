@@ -196,7 +196,7 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
         return false;
     //testWidget->setStyleSheet("background-color:red;");
     testWidget->show();
-    testWidget->setFixedSize(400, 200);
+    //testWidget->setFixedSize(Common::tranWidth(525), Common::tranHeight(200));
 
     vec_pluginBt.push_back(new QPushButton(this));
 

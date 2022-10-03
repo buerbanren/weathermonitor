@@ -3,7 +3,7 @@
 
 UIManage::UIManage(QObject *parent) : QObject(parent)
 {
-    timer.setInterval(3600000);
+    timer.setInterval(60000);
     w=new WeatherMonitor(nullptr);
     w->showFullScreen();
 
