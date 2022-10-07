@@ -40,7 +40,7 @@ void MonitorMenu::initUILayout()
     pgridlayoutMainMenu->addWidget(pbtUpload, 0, 1, 1, 2, Qt::AlignHCenter);
     connect(pbtUpload,&QPushButton::clicked,[=]()
     {
-        pgridlayoutMainMenu->setContentsMargins({32,32,32,0});
+        pgridlayoutMainMenu->setContentsMargins(32,32,32,0);
         this->move((parentWidget()->width()-this->width())/2, parentWidget()->height()-this->height() - 16);
         pbtUpload->hide();
         pbtDownload->show();

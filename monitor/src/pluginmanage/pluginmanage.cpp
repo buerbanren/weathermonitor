@@ -93,6 +93,7 @@ void PluginManage::initUILayout(QWidget *parent)
                                          Common::tranWidth(80),Common::tranHeight(40));
 
     p_btPluginManual=new QPushButton(this);
+    p_btPluginManual->setObjectName("btLoadPlugin");
     p_btPluginManual->setFixedSize(Common::tranSize(125,125));
     p_gridLayoutPlugin->addWidget(p_btPluginManual,0,0);
     connect(p_btPluginManual,&QPushButton::clicked,this, &PluginManage::addExtraLibrary);
@@ -216,13 +217,18 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
     }
 
     // 插件按钮添加并移动
-    bt->setStyleSheet(Common::readFileContent(":/qss/resource/qss/pluginmanagebt.css").data());
+    //bt->setStyleSheet(Common::readFileContent(":/qss/resource/qss/pluginmanagebt.css").data());
+    bt->update();
     bt->setFixedSize(Common::tranSize(125,125));
-    bt->setIconSize(bt->size());
+    bt->setIconSize(Common::tranSize(90,90));
     bt->setIcon(QIcon(QPixmap::fromImage(testInterface->getPluginIcon())));
     connect(bt,&QPushButton::clicked,[=]()
     {
         changePluginManagePage(PluginMangePage::PLUGIN_SINGLE);
+        stuPluginInfo info;
+        testInterface->getPluginInfo(info);
+        if(this->p_pluginInfoUI)
+            p_pluginInfoUI->setBaseInfo(testInterface->getPluginIcon(), info.name.data(), info.version.data(), info.copyright.data(), info.description.data());
     });
 
     p_gridLayoutPlugin->addWidget(bt,(vec_pluginBt.size()-1)/4,(vec_pluginBt.size()-1)%4);

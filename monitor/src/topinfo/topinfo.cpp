@@ -68,8 +68,8 @@ void TopInfo::initialControl()
     hlayoutTopInfo->addSpacerItem(spacerItemLR1);
     hlayoutTopInfo->addWidget(labTopInfoAddress);
     hlayoutTopInfo->addSpacerItem(spacerItemLR2);
-    hlayoutTopInfo->addWidget(labTopLastTime);
 
     hlayoutTopInfo->addSpacerItem(spacerItemLR3);
-    hlayoutTopInfo->addSpacerItem(spacerItemLR4);
+    hlayoutTopInfo->addWidget(labTopLastTime);
+    //hlayoutTopInfo->addSpacerItem(spacerItemLR4);
 }

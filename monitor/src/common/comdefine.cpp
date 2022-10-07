@@ -73,6 +73,7 @@ string Common::convertIcoType2Path(string type)
     else
     {
          icoPath.append(jsvalueicons["未知"].toObject().value("code").toString().toStdString());
+         qDebug()<<"天气类型:"<<type.data();
     }
     icoPath.append(".png");
     return icoPath;

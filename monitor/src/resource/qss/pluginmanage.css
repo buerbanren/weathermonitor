@@ -27,12 +27,22 @@
     background:transparent;
 }
 QPushButton{
+    background:transparent;
+    /*border:2px solid rgba(235,235,235,96);*/
+    border-radius:6px;
+}
+QPushButton::hover{
+    background:rgba(235,235,235,96);
+    border:2px solid rgba(235,235,235,96);
+    border-radius:6px;
+}
+#btLoadPlugin{
     image:url(:/qss/resource/qss/add.png);
     /*background-color: rgba(235,235,235,96);*/
     border:0px solid rgba(235,235,235,96);
     border-radius:6px;
 }
-QPushButton::hover{
+#btLoadPlugin::hover{
     /*background-color:rgba(235,235,235,96);*/
     border:2px solid rgba(235,235,235,96);
     border-radius:6px;
