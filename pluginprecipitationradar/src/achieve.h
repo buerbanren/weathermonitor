@@ -20,7 +20,7 @@
 #define RAINFALLRADAR_DATA_PATH "radar_list_new.json?_=1633345386515"
 
 // 动态库导出接口
-extern "C" INTERFACE_EXPORT TestInterface* getInstall();
+extern "C" INTERFACE_EXPORT CPluginInterface* getInstall();
 
 enum ZoomType
 {
@@ -28,19 +28,19 @@ enum ZoomType
     ZoomOut // 缩小
 };
 
-class AchieveClass: public TestInterface
+class AchieveClass: public CPluginInterface
 {
 	Q_OBJECT
 public:
     AchieveClass();
 
     // 获取插件界面
-    virtual QWidget *getPluginWidget()override;
+    virtual QWidget *getPluginWidget();
 
     // 获取插件应用图标
-	virtual QImage getPluginIcon()override;
+    virtual QImage getPluginIcon();
 
-    virtual void getPluginInfo(stuPluginInfo &info)override;
+    virtual void getPluginInfo(stuPluginInfo &info);
 
 	~AchieveClass()override;
 

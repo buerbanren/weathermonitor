@@ -13,12 +13,16 @@ struct stuPluginInfo
     std::string copyright;
     std::string lastTime;
     std::string description;
+
+    std::string detail;
+    std::string modifiedLog;
+    std::map<QString, QString> extraDescript;
 };
 
-class TestInterface: public QObject
+class CPluginInterface: public QObject
 {
 public:
-    virtual ~TestInterface(){}
+    virtual ~CPluginInterface(){}
     // 获取插件界面
     virtual QWidget *getPluginWidget()=0;
 

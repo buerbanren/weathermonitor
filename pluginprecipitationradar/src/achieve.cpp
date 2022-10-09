@@ -2,14 +2,14 @@
 #include <QMessageBox>
 #include <QPainter>
 
-TestInterface *testInterface=nullptr;
+CPluginInterface *g_pluginInterface=nullptr;
 
-TestInterface* getInstall()
+CPluginInterface* getInstall()
 {
-    if(!testInterface)
-        testInterface=new AchieveClass();
+    if(!g_pluginInterface)
+        g_pluginInterface=new AchieveClass();
 
-    return testInterface;
+    return g_pluginInterface;
 }
 
 AchieveClass::AchieveClass()
@@ -88,9 +88,15 @@ void AchieveClass::getPluginInfo(stuPluginInfo &info)
     info.ico=getPluginIcon();
     info.name="降水雷达";
     info.version="0.0.1";
-    info.copyright="";
+    info.copyright="jinbo";
     info.lastTime="2021-11-18";
     info.description="此插件提供由雷达探测云层信息后推算出的全国各地区降水概率情况，包含未来的24小时降水量";
+    info.detail = "此插件提供由雷达探测云层信息后推算出的全国各地区降水概率情况，包含未来的24小时降水量";
+    info.modifiedLog = "<h4>记录</h4><h5>2022.10.9</h5><p>&nbsp;&nbsp;·添加插件描述</p><p>&nbsp;&nbsp;·没有其他的了</p>";
+
+    info.extraDescript = {
+        std::pair<QString, QString>("问答", "写点东西")
+    };
 }
 
 AchieveClass::~AchieveClass()
