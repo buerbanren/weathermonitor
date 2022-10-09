@@ -49,7 +49,7 @@ private:
     std::map<std::string,PluginConfiguration> map_pluginConfig; // 插件配置信息
 
     std::vector<QLibrary*> vet_loadlibrary;
-    std::vector<TestInterface*> vet_interface;
+    std::vector<CPluginInterface*> vet_interface;
 
 signals:
     void addPluginPage(QWidget * const widgetplugin);

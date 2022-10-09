@@ -3,7 +3,7 @@
 #include <QTextBrowser>
 #include <QApplication>
 
-PluginInfo::PluginInfo(TestInterface *testInterface, QWidget *parent)
+PluginInfo::PluginInfo(CPluginInterface *testInterface, QWidget *parent)
     : QWidget(parent)
 {
     this->setStyleSheet(Common::readFileContent(":/qss/resource/qss/plugininfo.css").data());
@@ -87,21 +87,21 @@ void PluginInfo::init()
 
 
     // 子页面信息
-    m_pTableInfoDesc = new QTabWidget();
-    m_pTableInfoDesc->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    vlayout_infocontent->addWidget(m_pTableInfoDesc);
+    m_pTabInfoDesc = new QTabWidget();
+    m_pTabInfoDesc->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    vlayout_infocontent->addWidget(m_pTabInfoDesc);
 
     // 添加详细描述
-    m_pTableInfoDesc->addTab(new QTextBrowser(this), "细节");
-    m_pTableInfoDesc->addTab(new QTextBrowser(this), "更改日志");
+    m_pTabInfoDesc->addTab(new QTextBrowser(this), "细节");
+    m_pTabInfoDesc->addTab(new QTextBrowser(this), "更改日志");
 
-    qobject_cast<QTextBrowser*>(m_pTableInfoDesc->widget(0))->setReadOnly(false);
+    //qobject_cast<QTextBrowser*>(m_pTableInfoDesc->widget(0))->setReadOnly(false);
 
     connect(qApp, &QApplication::focusChanged,  this, [=](QWidget *old, QWidget *now)
     {
-        if(now != m_pTableInfoDesc->widget(0))
+        if(now != m_pTabInfoDesc->widget(0))
         {
-            qobject_cast<QTextBrowser*>(m_pTableInfoDesc->widget(0))->setHtml(qobject_cast<QTextBrowser*>(m_pTableInfoDesc->widget(0))->toPlainText());
+            qobject_cast<QTextBrowser*>(m_pTabInfoDesc->widget(0))->setHtml(qobject_cast<QTextBrowser*>(m_pTabInfoDesc->widget(0))->toPlainText());
         }
     });
 }
@@ -121,5 +121,28 @@ void PluginInfo::setBaseInfo(QImage img, QString name, QString version, QString 
 
 void PluginInfo::setExtraInfo(QString detail, QString modifiedLog, std::map<QString, QString> more)
 {
+    qobject_cast<QTextBrowser*>(m_pTabInfoDesc->widget(0))->setHtml(detail);
+    qobject_cast<QTextBrowser*>(m_pTabInfoDesc->widget(1))->setHtml(modifiedLog);
+
+    // 删除额外数据的页面
+    int nPages = this->m_pTabInfoDesc->count();
+    for(int i=2;i<nPages; i++)
+    {
+        QWidget *page = this->m_pTabInfoDesc->widget(i);
+        this->m_pTabInfoDesc->removeTab(i);
+        if(page)
+        {
+            delete page;
+            page = nullptr;
+        }
+    }
+
+    // 动态添加页面
+    for(const auto &itPage : more)
+    {
+        QTextBrowser *pageExtra = new QTextBrowser(this->m_pTabInfoDesc);
+        pageExtra->setHtml(itPage.second);
+        m_pTabInfoDesc->addTab(pageExtra, itPage.first);
+    }
 
 }

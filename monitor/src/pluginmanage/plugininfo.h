@@ -14,7 +14,7 @@ class PluginInfo : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PluginInfo(TestInterface *testInterface, QWidget *parent = nullptr);
+    explicit PluginInfo(CPluginInterface *testInterface, QWidget *parent = nullptr);
 
     void setBaseInfo(QImage img, QString name, QString version, QString author, QString desc);
 
@@ -48,7 +48,7 @@ private:
     QLabel *lab_pluginAuthor = new QLabel(frame_infocontent);
     QLabel *lab_pluginDescBase = new QLabel(frame_infocontent);
 
-    QTabWidget *m_pTableInfoDesc=nullptr;
+    QTabWidget *m_pTabInfoDesc=nullptr;
 
 
 };

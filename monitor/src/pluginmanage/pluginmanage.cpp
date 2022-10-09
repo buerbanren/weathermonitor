@@ -9,7 +9,7 @@
 	#include <windows.h>
 #endif
 
-typedef TestInterface* (*TestFunction)();
+typedef CPluginInterface* (*CPluginFunction)();
 
 PluginManage::PluginManage(QWidget *parent) : QFrame(parent)
 {
@@ -174,7 +174,7 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
         QMessageBox::warning(NULL,u8"提示",u8"禁止重复加载");
         return false;
     }
-    TestFunction getInstall=(TestFunction)library->resolve("getInstall");
+    CPluginFunction getInstall=(CPluginFunction)library->resolve("getInstall");
 #endif
 
     if(!getInstall)
@@ -183,7 +183,7 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
         return false;
     }
 
-    TestInterface *testInterface=getInstall();
+    CPluginInterface *testInterface=getInstall();
 
 	if (!testInterface)
         return false;
@@ -228,7 +228,11 @@ bool PluginManage::loadPluginDLL(std::string name, bool isnew)
         stuPluginInfo info;
         testInterface->getPluginInfo(info);
         if(this->p_pluginInfoUI)
-            p_pluginInfoUI->setBaseInfo(testInterface->getPluginIcon(), info.name.data(), info.version.data(), info.copyright.data(), info.description.data());
+        {
+            p_pluginInfoUI->setBaseInfo(testInterface->getPluginIcon(), info.name.data(), info.version.data(),
+                                        info.copyright.data(), info.description.data());
+            p_pluginInfoUI->setExtraInfo(info.detail.data(), info.modifiedLog.data(), info.extraDescript);
+        }
     });
 
     p_gridLayoutPlugin->addWidget(bt,(vec_pluginBt.size()-1)/4,(vec_pluginBt.size()-1)%4);
