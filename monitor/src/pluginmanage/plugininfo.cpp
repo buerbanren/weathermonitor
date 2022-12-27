@@ -13,20 +13,21 @@ PluginInfo::PluginInfo(CPluginInterface *testInterface, QWidget *parent)
 void PluginInfo::init()
 {
     vlayout_info=new QVBoxLayout(this);
-    vlayout_info->setContentsMargins(10,10,10,30);
+    vlayout_info->setContentsMargins(Common::tranWidth(10),Common::tranWidth(10),\
+                                     Common::tranWidth(10),Common::tranWidth(30));
     vlayout_info->setSpacing(0);
     this->setLayout(vlayout_info);
 
     // 顶部返回栏
     frame_infotop=new QWidget(this);
-    frame_infotop->setFixedHeight(32);
+    frame_infotop->setFixedHeight(Common::tranHeight(32));
     hlayout_infotop=new QHBoxLayout(frame_infotop);
     hlayout_infotop->setContentsMargins(0,0,0,0);
     hlayout_infotop->setSpacing(0);
 
     btReturn=new QPushButton(frame_infotop);
     btReturn->setObjectName("bt_returnPluginALL");
-    btReturn->setFixedSize(32,32);
+    btReturn->setFixedSize(Common::tranWidth(32),Common::tranWidth(32));
     connect(btReturn,&QPushButton::clicked,[=]()
     {
         emit returnPluginPage();
@@ -45,24 +46,25 @@ void PluginInfo::init()
 
     //  插件的布局
     vlayout_infocontent = new QVBoxLayout(this->frame_infocontent);
-    vlayout_infocontent->setContentsMargins(72, 12, 64, 24);
+    vlayout_infocontent->setContentsMargins(Common::tranWidth(72), Common::tranWidth(12),\
+                                            Common::tranWidth(64), Common::tranWidth(24));
 
     hlayout_infoBase = new QHBoxLayout();
-    hlayout_infoBase->setSpacing(48);
+    hlayout_infoBase->setSpacing(Common::tranWidth(48));
     hlayout_infoBase->setSizeConstraint(QLayout::SetMinimumSize);
     vlayout_infocontent->addLayout(hlayout_infoBase);
     //vlayout_infocontent->addSpacerItem(new QSpacerItem(20,40,QSizePolicy::Minimum, QSizePolicy::Expanding));
 
     // 插件图标
     lab_icoPlugin = new QLabel(frame_infocontent);
-    lab_icoPlugin->setFixedSize(96, 96);
+    lab_icoPlugin->setFixedSize(Common::tranWidth(96), Common::tranWidth(96));
     lab_icoPlugin->setAlignment(Qt::AlignCenter);
     lab_icoPlugin->setText("[ico]");
     lab_icoPlugin->setScaledContents(true);
 
     // 插件简要信息描述布局
     layout_baseText = new QVBoxLayout();
-    layout_baseText->setSpacing(10);
+    layout_baseText->setSpacing(Common::tranHeight(10));
 
     hlayout_infoBase->addWidget(lab_icoPlugin);
     hlayout_infoBase->addLayout(layout_baseText);
