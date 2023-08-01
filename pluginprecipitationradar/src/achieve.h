@@ -1,4 +1,4 @@
-#ifndef ACHIEVE_H
+﻿#ifndef ACHIEVE_H
 #define ACHIEVE_H
 
 #include "interface.h"
@@ -28,11 +28,14 @@ enum ZoomType
     ZoomOut // 缩小
 };
 
+class QCefWidget;
+
 class AchieveClass: public CPluginInterface
 {
 	Q_OBJECT
 public:
     AchieveClass();
+	~AchieveClass()override;
 
     // 获取插件界面
     virtual QWidget *getPluginWidget();
@@ -42,11 +45,9 @@ public:
 
     virtual void getPluginInfo(stuPluginInfo &info);
 
-	~AchieveClass()override;
-
     // 播放降水雷达探测图
     void playRadarImage();
-
+	
 signals:
     void imgdataFinished(std::string key);
 
@@ -58,8 +59,12 @@ private:
     void analysisRadarData(QByteArray data);
     void requestImageData(std::string key);
     void radarZoom(ZoomType type);
-    QWidget *widget=nullptr;
+    
+	void saveRadarImage(QImage &radar, std::string time);
 
+	void updateImageList(std::vector<std::string> timelist);
+	
+	QWidget *widget=nullptr;
 
 private:
     QNetworkAccessManager *pnetmanager=nullptr;
@@ -80,6 +85,9 @@ private:
     QLabel *imagelabel=nullptr;
     QPushButton *pbtZoomIn=nullptr;
     QPushButton *pbtZoomOut=nullptr;
+
+
+	QWidget *cefWidget = nullptr;
 };
 
 #endif // ACHIEVE_H

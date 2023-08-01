@@ -54,3 +54,4 @@ Makefile.*
 *.user
 *.sdf
 *.filters
+.qtc_clangd

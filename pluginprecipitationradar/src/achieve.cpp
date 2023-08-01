@@ -1,6 +1,9 @@
-#include "achieve.h"
+﻿#include "achieve.h"
 #include <QMessageBox>
 #include <QPainter>
+#include <platform.h>
+#include <QCoreApplication>
+#include <fstream>
 
 CPluginInterface *g_pluginInterface=nullptr;
 
@@ -8,7 +11,7 @@ CPluginInterface* getInstall()
 {
     if(!g_pluginInterface)
         g_pluginInterface=new AchieveClass();
-
+	
     return g_pluginInterface;
 }
 
@@ -22,7 +25,8 @@ AchieveClass::AchieveClass()
         qssstyledata=qssfile.readAll().toStdString();
     }
 
-    widget=new QWidget(nullptr);
+    // widget=new QWidget(nullptr);
+	widget = Platform::createCefWidget(); 
     widget->resize(100,50);
     widget->setStyleSheet(qssstyledata.data());
 
@@ -71,6 +75,7 @@ AchieveClass::AchieveClass()
     {
         radarZoom(ZoomType::ZoomOut);
     });
+
 }
 
 QWidget *AchieveClass::getPluginWidget()
@@ -181,6 +186,7 @@ void AchieveClass::analysisRadarData(QByteArray data)
         return;
     }
     std::map<std::string,std::string> mapEmpty;
+	std::vector<std::string> timeList;
     mapRainfallForImg.swap(mapEmpty);
 
     for(auto valuedayobj: valuearr.value().toArray())
@@ -202,8 +208,11 @@ void AchieveClass::analysisRadarData(QByteArray data)
         {
             mapRainfallForImg[timearray.at(indexTime).toString().toStdString()]=\
                     timepatharay.at(indexTime).toString().toStdString();
+			timeList.push_back(timearray.at(indexTime).toString().toStdString());
         }
     }
+
+	updateImageList(timeList);
 }
 
 void AchieveClass::requestImageData(std::string key)
@@ -245,6 +254,9 @@ void AchieveClass::requestImageData(std::string key)
             std::string curtime = * (list_time.begin());
             list_time.pop_front();
             emit imgdataFinished(curtime);
+
+			// 保存图片数据到本地缓存
+			saveRadarImage(img, key);
 		});
     }
 }
@@ -280,4 +292,38 @@ void AchieveClass::playRadarImage()
     imagelabel->setPixmap(QPixmap::fromImage(radarimg.scaled(widget->size())));
 
     radarIterator++;
+}
+
+void AchieveClass::saveRadarImage(QImage &radar, std::string time)
+{
+	radar.save(QCoreApplication::applicationDirPath() + "/radarimage/" + QString::fromStdString(time) + ".png", "png");
+}
+
+void AchieveClass::updateImageList(std::vector<std::string> timelist)
+{
+	std::string content;
+	content.append("var arrImgPath = [");
+	for (int i = timelist.size() - 1; i >= 0 ; --i)
+	{
+		content.append("\"");
+		content.append("radarimage/" + timelist[i] + ".png");
+		content.append("\"");
+		if (i != 0)
+		{
+			content.append(",");
+		}
+	}
+	content.append("]");
+
+	QString path = QCoreApplication::applicationDirPath() + "/radarimage/images.js";
+	std::string stdPath = path.toStdString();
+	std::ofstream ofList;
+	ofList.open(stdPath.data(), std::iostream::out);
+	if (!ofList.is_open())
+	{
+		return;
+	}
+
+	ofList.write(content.data(), content.size());
+	ofList.close();
 }

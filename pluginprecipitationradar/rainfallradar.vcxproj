@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|x64">
@@ -16,7 +16,7 @@
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolSet>v140</PlatformToolSet>
     <OutputDirectory>..\build\release\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
@@ -25,7 +25,7 @@
     <IntermediateDirectory>temp\release\obj\</IntermediateDirectory>
     <PrimaryOutput>rainfallradar</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <PlatformToolSet>v140</PlatformToolSet>
     <OutputDirectory>..\build\debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
@@ -36,27 +36,27 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\build\release\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\obj\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">rainfallradar</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\build\debug\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\obj\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">rainfallradar</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\build\release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rainfallradar</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\build\debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rainfallradar</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\release\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\platform\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\release\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>temp\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -67,7 +67,8 @@
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;INTERFACE_LIBRARY;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
-      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -75,8 +76,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgets.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Gui.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Network.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\build\release\platform.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgets.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Gui.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Network.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\build\release;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -96,9 +97,9 @@
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;INTERFACE_LIBRARY;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\debug\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\platform\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtWidgets;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtGui;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtANGLE;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtNetwork;F:\Qt\Qt5.6.0\5.6\msvc2015_64\include\QtCore;temp\debug\moc;F:\Qt\Qt5.6.0\5.6\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>temp\debug\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -116,8 +117,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgetsd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Guid.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Networkd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\build\debug\platform.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Widgetsd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Guid.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Networkd.lib;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\build\release;F:\Qt\Qt5.6.0\5.6\msvc2015_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -141,45 +142,48 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\achieve.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\achieve.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DINTERFACE_LIBRARY -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/pluginprecipitationradar -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\achieve.h -o temp\release\moc\moc_achieve.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/achieve.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\moc\moc_achieve.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\achieve.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DINTERFACE_LIBRARY -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/pluginprecipitationradar -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\achieve.h -o temp\debug\moc\moc_achieve.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/achieve.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\moc\moc_achieve.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\achieve.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DINTERFACE_LIBRARY -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/pluginprecipitationradar -IG:/Programming/C++_Qt/weathermonitor/platform/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\achieve.h -o temp\release\moc\moc_achieve.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/achieve.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\moc\moc_achieve.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\achieve.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DINTERFACE_LIBRARY -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IG:/Programming/C++_Qt/weathermonitor/pluginprecipitationradar -IG:/Programming/C++_Qt/weathermonitor/platform/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtWidgets -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtGui -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtANGLE -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtNetwork -IF:/Qt/Qt5.6.0/5.6/msvc2015_64/include/QtCore src\achieve.h -o temp\debug\moc\moc_achieve.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/achieve.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\moc\moc_achieve.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <ClInclude Include="src\interface.h" />
     <ClInclude Include="src\pluginprecipitationradar_global.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="temp\debug\moc\moc_achieve.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\moc\moc_achieve.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\debug\rc\qrc_pluginprecipitationradar.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="temp\release\qrc_pluginprecipitationradar.cpp">
-      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\resource\qss\plugin.qss" />
     <CustomBuild Include="pluginprecipitationradar.qrc">
       <FileType>Document</FileType>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">pluginprecipitationradar.qrc;src\resource\qss\weatherradar.png;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name pluginprecipitationradar pluginprecipitationradar.qrc -o temp\release\qrc_pluginprecipitationradar.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">RCC pluginprecipitationradar.qrc</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">temp\release\qrc_pluginprecipitationradar.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">pluginprecipitationradar.qrc;src\resource\qss\weatherradar.png;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name pluginprecipitationradar pluginprecipitationradar.qrc -o temp\debug\rc\qrc_pluginprecipitationradar.cpp</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">RCC pluginprecipitationradar.qrc</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">temp\debug\rc\qrc_pluginprecipitationradar.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pluginprecipitationradar.qrc;src\resource\qss\plugin.qss;src\resource\qss\zoomout.png;src\resource\qss\weatherradar.png;src\resource\qss\zoomin.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name pluginprecipitationradar pluginprecipitationradar.qrc -o temp\release\qrc_pluginprecipitationradar.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">RCC pluginprecipitationradar.qrc</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp\release\qrc_pluginprecipitationradar.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pluginprecipitationradar.qrc;src\resource\qss\plugin.qss;src\resource\qss\zoomout.png;src\resource\qss\weatherradar.png;src\resource\qss\zoomin.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Qt\Qt5.6.0\5.6\msvc2015_64\bin\rcc.exe -name pluginprecipitationradar pluginprecipitationradar.qrc -o temp\debug\rc\qrc_pluginprecipitationradar.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">RCC pluginprecipitationradar.qrc</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp\debug\rc\qrc_pluginprecipitationradar.cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="src\resource\qss\weatherradar.png" />
+    <None Include="src\resource\qss\zoomin.png" />
+    <None Include="src\resource\qss\zoomout.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

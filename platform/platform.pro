@@ -1,31 +1,35 @@
-QT += widgets gui network
+QT += core gui widgets
 
 TEMPLATE = lib
-DEFINES += INTERFACE_LIBRARY
-TARGET = rainfallradar
+DEFINES += PLATFORM_LIBRARY
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    src/achieve.cpp
+    src/cefwidget/qcefwidget.cpp \
+    src/cefwidget/simple_app.cc \
+    src/cefwidget/simple_handler.cc \
+    src/platform.cpp
 
 HEADERS += \
-    src/pluginprecipitationradar_global.h \
-    src/interface.h \
-    src/achieve.h
+    src/cefwidget/qcefwidget.h \
+    src/cefwidget/simple_app.h \
+    src/cefwidget/simple_handler.h \
+    include/platform_global.h \
+    include/platform.h
 
-INCLUDEPATH += ../platform/include
+INCLUDEPATH += ../extend/libcef
 CONFIG(Debug)
 {
-    LIBS += -L../build/debug -lplatform
+    LIBS += -L../extend/libcef/lib/debug -llibcef -llibcef_dll_wrapper
 }
 CONFIG(Release)
 {
-    LIBS = -L../build/release -lplatform
+    LIBS = -L../extend/libcef/lib/release -llibcef -llibcef_dll_wrapper
 }
 
 CONFIG(Debug){
@@ -43,6 +47,3 @@ RCC_DIR = temp/release/
 UI_DIR = temp/release/qui
 DESTDIR = ../build/release
 }
-
-RESOURCES += \
-    pluginprecipitationradar.qrc
