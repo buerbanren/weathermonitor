@@ -1,4 +1,4 @@
-#ifndef DIALIMAGE_H
+﻿#ifndef DIALIMAGE_H
 #define DIALIMAGE_H
 
 #include <QObject>

@@ -11,6 +11,18 @@
         "code": "101",
         "name": "Cloudy"
     },
+    "局部晴朗": {
+        "code": "102",
+        "name": "Few Clouds"
+    },
+    "局部多云": {
+        "code": "101",
+        "name": "Few Clouds"
+    },
+    "大部晴朗": {
+        "code": "102",
+        "name": "Few Clouds"
+    },
     "少云": {
         "code": "102",
         "name": "Few Clouds"

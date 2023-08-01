@@ -1,4 +1,4 @@
-#include "pluginmanage.h"
+﻿#include "pluginmanage.h"
 #include "../common/comdefine.h"
 #include <QEvent>
 #include <QFileDialog>
@@ -127,7 +127,7 @@ void PluginManage::initUILayout(QWidget *parent)
 
 void PluginManage::loadPluginDLL()
 {
-    ifstream if_pluginconfig;
+    fstream if_pluginconfig;
     if_pluginconfig.open(PLUGIN_CONFIGFILE,ios_base::in | ios_base::binary);
     if(!if_pluginconfig.is_open())
     {
@@ -139,16 +139,17 @@ void PluginManage::loadPluginDLL()
     while(!if_pluginconfig.eof())
     {
         PluginConfiguration plugconfig;
-        int size=if_pluginconfig.readsome((char*)&plugconfig,sizeof(PluginConfiguration));
-        if(size==0)
-            break;
-        //if_pluginconfig.seekg(size,ios_base::seekdir::_S_cur);
+		if_pluginconfig.read((char*)&plugconfig, sizeof(PluginConfiguration));
+		if (!QFile::exists(QString(plugconfig.name) + ".dll"))	// 判断文件是否存在
+		{
+			continue;
+		}
+
 
         if(!loadPluginDLL(plugconfig.name))
             continue;
 
         map_pluginConfig[plugconfig.name]=plugconfig;
-
     }
 
     if_pluginconfig.close();

@@ -1,4 +1,4 @@
-#ifndef PLUGINMANAGE_H
+﻿#ifndef PLUGINMANAGE_H
 #define PLUGINMANAGE_H
 
 #include <QFrame>
@@ -15,9 +15,9 @@
 
 // 插件配置保存信息
 struct PluginConfiguration{
-    char name[24];  //名称
-    char version[8];    // 版本
-    int installed;  // 是否已经安装，0：未安装；1：已安装
+    char name[24]="";  //名称
+    char version[8]="";    // 版本
+    int installed=-1;  // 是否已经安装，0：未安装；1：已安装
 };
 
 enum PluginMangePage{

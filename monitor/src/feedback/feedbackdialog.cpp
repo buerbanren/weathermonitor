@@ -1,4 +1,4 @@
-#include "feedbackdialog.h"
+﻿#include "feedbackdialog.h"
 #include "../common/comdefine.h"
 #include <QListView>
 

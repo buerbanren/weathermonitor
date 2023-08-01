@@ -54,6 +54,16 @@ TARGET = weathermonitor
 
 VERSION = 0.0.1
 
+INCLUDEPATH += ../platform/include
+CONFIG(Debug)
+{
+    LIBS += -L../build/debug -lplatform
+}
+CONFIG(Release)
+{
+    LIBS = -L../build/release -lplatform
+}
+
 CONFIG(Debug){
 MOC_DIR = temp/debug/moc
 OBJECTS_DIR = temp/debug/obj
@@ -63,15 +73,9 @@ DESTDIR = ../build/debug
 }
 
 CONFIG(Release){
-MOC_DIR = temp/debug/moc
-OBJECTS_DIR = temp/debug/obj
-RCC_DIR = temp/debug/
-UI_DIR = temp/debug/qui
-DESTDIR = ../build/debug
+MOC_DIR = temp/release/moc
+OBJECTS_DIR = temp/release/obj
+RCC_DIR = temp/release/
+UI_DIR = temp/release/qui
+DESTDIR = ../build/release
 }
-
-# Default rules for deployment.
-# qnx: target.path = /tmp/$${TARGET}/bin
-# else: unix:!android: target.path = /opt/$${TARGET}/bin
-#!isEmpty(target.path): INSTALLS += target
-

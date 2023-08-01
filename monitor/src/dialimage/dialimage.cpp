@@ -1,4 +1,4 @@
-#include "dialimage.h"
+﻿#include "dialimage.h"
 
 DialImage::DialImage(QWidget *parent) : QWidget(parent)
 {

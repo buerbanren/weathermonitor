@@ -1,4 +1,4 @@
-#include "aboutdialog.h"
+﻿#include "aboutdialog.h"
 #include "../common/comdefine.h"
 
 AboutDialog::AboutDialog(QWidget *parent):
